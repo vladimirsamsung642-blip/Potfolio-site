@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukART — Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+        }
+        
+        .nav-link.active {
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .logo-green {
+            background-color: #22c55e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .filter-btn {
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: #111827;
+            color: white;
+        }
+        
+        .filter-btn:not(.active):hover {
+            background-color: #f3f4f6;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .project-card:hover {
+            filter: grayscale(0.3) brightness(0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .open-work-btn {
+            transition: all 0.2s ease;
+            font-size: 12px;
+            padding: 5px 12px;
+        }
+        
+        .open-work-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        .green-cta {
+            background-color: #22c55e;
+            transition: all 0.3s ease;
+        }
+        
+        .green-cta:hover {
+            background-color: #16a34a;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-x-1">
+                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600">About</a>
+                    <a href="portfolio.html" class="nav-link active font-medium">Portfolio</a>
+                    <a href="services.html" class="nav-link text-gray-600">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-600">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="contact.html"
+                        class="px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                    Задать вопрос
+                </a>
+
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Header -->
+    <div class="max-w-screen-xl mx-auto px-8 pt-12 pb-8">
+        <h1 class="text-4xl font-semibold tracking-tight mb-2">Портфолио</h1>
+        <p class="text-gray-600">Коллекция моих лучших работ в области дизайна и разработки</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-8">
+        <div class="flex flex-wrap gap-2" id="filters">
+            <button data-filter="all" class="filter-btn active bg-black text-white">All</button>
+            <button data-filter="sketch" class="filter-btn bg-gray-100 text-gray-700">Sketch</button>
+            <button data-filter="ui-ux" class="filter-btn bg-gray-100 text-gray-700">UI/UX</button>
+            <button data-filter="web" class="filter-btn bg-gray-100 text-gray-700">Web</button>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-12">
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Projects will be inserted via JS -->
+        </div>
+    </div>
+
+    <!-- Big CTA -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-16">
+        <div class="green-cta rounded-[28px] py-8 px-10 text-center text-white">
+            <h3 class="text-2xl font-semibold tracking-tight mb-1">Не нашли нужный тип проекта?</h3>
+            <p class="text-white/90 mb-4">Напишите, обсудим</p>
+            
+            <a href="contact.html"
+                    class="bg-black text-white text-sm font-medium px-6 py-2 rounded-full hover:bg-gray-900 transition-colors inline-block text-center">
+                Начать проект
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 bg-white">
+        <div class="max-w-screen-xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-[220px]">
+                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Навигация</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
+                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
+                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
+                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Контакты</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="/cdn-cgi/l/email-protection#1577607e7467617170667c727b557278747c793b767a78" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="e183948a80939585849288868fa1868c80888dcf828e8c">[email&#160;protected]</span></a>
+                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-400 md:text-right self-end">
+                    © 2025 BukART. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Contact Modal -->
+    <div id="contactModal" onclick="hideContactModal(event)"
+         class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold">Задать вопрос</h3>
+                <button onclick="hideContactModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitContactForm(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Ваше имя</label>
+                        <input type="text" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Email</label>
+                        <input type="email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="you@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Сообщение</label>
+                        <textarea required rows="4" class="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-green-500 resize-y" placeholder="Расскажите о вашем проекте..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="hideContactModal()" 
+                            class="flex-1 py-3 text-sm font-medium border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
+                        Отмена
+                    </button>
+                    <button type="submit" 
+                            class="flex-1 py-3 bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-medium rounded-full transition-colors">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Projects data
+        const projects = [
+            {
+                id: 1,
+                title: "Пластилин",
+                year: "2025",
+                description: "Серия современной типографики",
+                category: "all", // will show only in All for now
+                imageType: "plasticine"
+            },
+            {
+                id: 2,
+                title: "Geometry of Presence",
+                year: "2025",
+                description: "Описание проекта",
+                category: "all",
+                imageType: "geometry"
+            }
+        ];
+
+        // Render projects
+        function renderProjects(filter = 'all') {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? projects 
+                : projects.filter(p => p.category === filter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center">
+                        <p class="text-gray-400 text-lg">В этой категории пока нет работ</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(project => {
+                const card = document.createElement('div');
+                card.className = `project-card bg-white`;
+
+                const imageHTML = `
+                    <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                        <!-- 
+                            <img src="" alt="Пластилин" class="w-full h-full object-cover">
+                        -->
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
+                            <img src="images/plasticine.jpg" alt="Пластилин" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <a href="project.html" 
+                           class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium px-3 py-1 rounded-full flex items-center gap-x-1 shadow open-work-btn">
+                            Открыть работу 
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                `;
+
+                card.innerHTML = `
+                    ${imageHTML}
+                    <div class="p-5 flex justify-between items-end">
+                        <div>
+                            <h3 class="font-semibold text-lg tracking-tight">${project.title}</h3>
+                            <p class="text-gray-500 text-sm">${project.description}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm text-gray-400">${project.year}</span>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('#filters button');
+            
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    filterButtons.forEach(b => b.classList.remove('active', 'bg-black', 'text-white'));
+                    filterButtons.forEach(b => {
+                        if (!b.classList.contains('active')) {
+                            b.classList.add('bg-gray-100', 'text-gray-700');
+                        }
+                    });
+
+                    // Add active to clicked
+                    btn.classList.add('active', 'bg-black', 'text-white');
+                    btn.classList.remove('bg-gray-100', 'text-gray-700');
+
+                    const filter = btn.getAttribute('data-filter');
+                    renderProjects(filter);
+                });
+            });
+        }
+
+
+
+        // Start project button (opens contact modal)
+        function startProject() {
+            showContactModal();
+        }
+
+        // Contact modal
+        function showContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function hideContactModal(event) {
+            if (!event || event.target.id === 'contactModal') {
+                const modal = document.getElementById('contactModal');
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            const modal = document.getElementById('contactModal');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl text-center">
+                    <div class="mx-auto w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Спасибо!</h3>
+                    <p class="text-gray-600 mb-6">Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.</p>
+                    
+                    <button onclick="location.reload()" 
+                            class="px-8 py-2.5 bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full transition-colors">
+                        Закрыть
+                    </button>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                location.reload();
+            }, 2800);
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const contactModal = document.getElementById('contactModal');
+                if (!contactModal.classList.contains('hidden')) {
+                    hideContactModal();
+                }
+            }
+        });
+
+        // Initialize
+        function init() {
+            renderProjects('all');
+            setupFilters();
+            
+            // Ensure "All" is active by default
+            console.log('%c[BukART] Портфолио загружено', 'color:#22c55e');
+        }
+
+        window.onload = init;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0824cd29bf5b80f',t:'MTc4MDg2MzAyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

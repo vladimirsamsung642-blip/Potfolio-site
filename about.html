@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukART — Обо мне</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+        }
+        
+        .nav-link.active {
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .logo-green {
+            background-color: #22c55e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .skill-tag {
+            font-size: 13px;
+            padding: 6px 14px;
+            background-color: #f3f4f6;
+            color: #374151;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag.active {
+            background-color: #dcfce7;
+            color: #166534;
+            font-weight: 500;
+        }
+
+        .approach-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .approach-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .award-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .award-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .resume-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .resume-btn:hover {
+            background-color: #111827;
+        }
+
+        .photo-placeholder {
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-x-1">
+                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="about.html" class="nav-link active font-medium">About</a>
+                    <a href="portfolio.html" class="nav-link text-gray-600">Portfolio</a>
+                    <a href="services.html" class="nav-link text-gray-600">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-600">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="contact.html"
+                        class="px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                    Задать вопрос
+                </a>
+
+                <!-- Mobile menu -->
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Intro Section -->
+    <div class="max-w-screen-xl mx-auto px-8 pt-12 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 items-center">
+            
+            <!-- Left: Text -->
+            <div class="lg:col-span-7">
+                <h1 class="text-5xl font-semibold tracking-tighter mb-6">Привет, я Булат</h1>
+                
+                <div class="max-w-xl text-gray-600 text-[15px] leading-relaxed space-y-4">
+                    <p>Я — дизайнер с 5-летним опытом работы в индустрии создания цифровых продуктов.</p>
+                    
+                    <p>Моя цель — создавать дизайны, работающий не только красиво внешне, но и решает реальные проблемы бизнеса и пользователей.</p>
+                </div>
+
+                <button onclick="downloadResume()"
+                        class="mt-8 inline-flex items-center gap-x-2 px-6 py-3 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-full transition-all resume-btn">
+                    <span>Скачать резюме</span>
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                </button>
+            </div>
+
+            <!-- Right: Photo placeholder + green accent -->
+            <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-[320px]">
+                    <!-- Gray photo placeholder -->
+                    <div class="w-full aspect-[4/3.2] rounded-3xl bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
+                        <!-- Вставьте фото здесь -->
+                    </div>
+                    
+                    <!-- Green decorative shape -->
+                    <div class="absolute -bottom-4 -left-4 w-20 h-14 bg-[#22c55e] rounded-2xl"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Skills & Approach + Awards -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12">
+            
+            <!-- Left column: Skills + Approach -->
+            <div class="lg:col-span-7">
+                
+                <!-- Навыки & Экспертиза -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-semibold section-title tracking-tight mb-6">Навыки &amp; Экспертиза</h2>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag active">Figma</span>
+                        <span class="skill-tag">Web Design</span>
+                        <span class="skill-tag">Sketch</span>
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Canva</span>
+                    </div>
+                </div>
+
+                <!-- Мой подход -->
+                <div>
+                    <h2 class="text-2xl font-semibold section-title tracking-tight mb-6">Мой подход</h2>
+                    
+                    <div class="space-y-6" id="approach-list">
+                        <!-- JS will populate these with animation -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column: Awards + Hobbies -->
+            <div class="lg:col-span-5 mt-10 lg:mt-0">
+                
+                <!-- Награды -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold section-title tracking-tight mb-6">Награды</h2>
+                    
+                    <div class="space-y-3" id="awards-list">
+                        <!-- Populated via JS with sequential animation -->
+                    </div>
+                </div>
+
+                <!-- Хобби -->
+                <div>
+                    <h2 class="text-2xl font-semibold section-title tracking-tight mb-4">Хобби</h2>
+                    
+                    <div class="bg-black text-white rounded-3xl p-6 text-sm leading-relaxed">
+                        В свободное время я увлекаюсь фотографией, походами в лес и изучением wibe-coding. 
+                        Это помогает мне находить вдохновение.
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 bg-white">
+        <div class="max-w-screen-xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
+                
+                <!-- Logo + description -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-[220px]">
+                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <div class="font-semibold text-sm mb-4">Навигация</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
+                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
+                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
+                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
+                    </div>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <div class="font-semibold text-sm mb-4">Контакты</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="/cdn-cgi/l/email-protection#7f1d0a141e0d0b1b1a0c1618113f18121e1613511c1012" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="b5d7c0ded4c7c1d1d0c6dcd2dbf5d2d8d4dcd99bd6dad8">[email&#160;protected]</span></a>
+                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-400 md:text-right self-end">
+                    © 2025 BukART. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal (same as index) -->
+    <div id="contactModal" onclick="hideContactModal(event)"
+         class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold">Задать вопрос</h3>
+                <button onclick="hideContactModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitContactForm(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Ваше имя</label>
+                        <input type="text" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Email</label>
+                        <input type="email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="you@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Сообщение</label>
+                        <textarea required rows="4" class="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-green-500 resize-y" placeholder="Расскажите о вашем проекте..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="hideContactModal()" 
+                            class="flex-1 py-3 text-sm font-medium border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
+                        Отмена
+                    </button>
+                    <button type="submit" 
+                            class="flex-1 py-3 bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-medium rounded-full transition-colors">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Tailwind already loaded via CDN
+
+        // Data for sections
+        const approachItems = [
+            {
+                icon: "fa-lightbulb",
+                title: "Смысл важнее картинки",
+                text: "Дизайн должен приносить деньги. Я проектирую интерфейсы, которые помогают пользователям и ведут их к покупке."
+            },
+            {
+                icon: "fa-sitemap",
+                title: "Архитектура и масштабируемость",
+                text: "Продумываю логику так, чтобы сайт или продукт легко развивался и не превращался в хаос через год."
+            },
+            {
+                icon: "fa-search",
+                title: "Внимание к деталям",
+                text: "Тщательно прорабатываю все состояния элементов и анимации. Пользователь должен чувствовать качество на каждом шаге."
+            }
+        ];
+
+        const awards = [
+            "«Дизайн молодых / Young Design» 2025",
+            "«Дизайн-Перспектива» 2025",
+            "«Придумано и сделано в России» 2025",
+            "Graphic design 2025"
+        ];
+
+        // Render Approach items with sequential animation
+        function renderApproachItems() {
+            const container = document.getElementById('approach-list');
+            container.innerHTML = '';
+
+            approachItems.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = `approach-item flex gap-4 bg-gray-50 rounded-2xl p-5`;
+                
+                div.innerHTML = `
+                    <div class="w-9 h-9 flex-shrink-0 mt-0.5">
+                        <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                            <i class="fas ${item.icon} text-[#22c55e] text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-base mb-1">${item.title}</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">${item.text}</p>
+                    </div>
+                `;
+                
+                container.appendChild(div);
+                
+                // Sequential animation
+                setTimeout(() => {
+                    div.classList.add('visible');
+                }, 300 + (index * 280));
+            });
+        }
+
+        // Render Awards with sequential slow fade-in
+        function renderAwards() {
+            const container = document.getElementById('awards-list');
+            container.innerHTML = '';
+
+            awards.forEach((award, index) => {
+                const div = document.createElement('div');
+                div.className = `award-item flex items-start gap-3 text-sm py-1`;
+                
+                div.innerHTML = `
+                    <div class="mt-1.5">
+                        <i class="fas fa-trophy text-[#22c55e]"></i>
+                    </div>
+                    <div class="text-gray-700">${award}</div>
+                `;
+                
+                container.appendChild(div);
+                
+                // Slow sequential animation (as requested: one by one)
+                setTimeout(() => {
+                    div.classList.add('visible');
+                }, 600 + (index * 650)); // Slow, deliberate timing
+            });
+        }
+
+        // Download Resume (does nothing real)
+        function downloadResume() {
+            const btn = event.currentTarget;
+            
+            // Visual feedback
+            const originalText = event.target.innerHTML;
+            
+            const button = event.target.closest('button') || event.target;
+            const originalHTML = button.innerHTML;
+            
+            button.innerHTML = `
+                <span>Скачивается...</span>
+                <i class="fas fa-check ml-2"></i>
+            `;
+            button.disabled = true;
+            button.style.opacity = '0.8';
+
+            // Toast notification
+            showToast("Резюме скачивается (симуляция)");
+
+            // Reset button after 2.5 seconds
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.disabled = false;
+                button.style.opacity = '1';
+            }, 2500);
+        }
+
+        // Simple toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 z-[100]`;
+            toast.innerHTML = `
+                <i class="fas fa-download text-[#22c55e]"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.3s ease';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 200);
+            }, 2200);
+        }
+
+        // Contact modal functions (shared)
+        function showContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function hideContactModal(event) {
+            if (!event || event.target.id === 'contactModal') {
+                const modal = document.getElementById('contactModal');
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            
+            const modal = document.getElementById('contactModal');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl text-center">
+                    <div class="mx-auto w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Спасибо!</h3>
+                    <p class="text-gray-600 mb-6">Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.</p>
+                    
+                    <button onclick="location.reload()" 
+                            class="px-8 py-2.5 bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full transition-colors">
+                        Закрыть
+                    </button>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('contactModal');
+                if (!modal.classList.contains('hidden')) {
+                    hideContactModal();
+                }
+            }
+        });
+
+        // Initialize everything
+        function init() {
+            // Render animated sections
+            renderApproachItems();
+            renderAwards();
+            
+            // Make sure About is highlighted
+            console.log('%c[BukART] Страница "Обо мне" загружена с анимациями', 'color:#22c55e');
+        }
+
+        window.onload = init;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0822c4c1bb8b80f',t:'MTc4MDg2MTY5Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukART — Обсудим проект</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+        }
+        
+        .nav-link.active {
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .logo-green {
+            background-color: #22c55e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .form-input {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            color: white;
+            transition: all 0.2s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #22c55e;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .custom-select {
+            position: relative;
+        }
+
+        .select-trigger {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .select-trigger:hover {
+            border-color: #22c55e;
+        }
+
+        .select-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            z-index: 50;
+            margin-top: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+        }
+
+        .custom-select:hover .select-options {
+            display: block;
+        }
+
+        .select-option {
+            padding: 10px 16px;
+            color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .select-option:hover {
+            background-color: #374151;
+            color: white;
+        }
+
+        .select-option.selected {
+            background-color: #22c55e;
+            color: black;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-link {
+            transition: all 0.2s ease;
+        }
+        
+        .contact-link:hover {
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-x-1">
+                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600">About</a>
+                    <a href="portfolio.html" class="nav-link text-gray-600">Portfolio</a>
+                    <a href="services.html" class="nav-link text-gray-600">Services</a>
+                    <a href="contact.html" class="nav-link active font-medium">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="contact.html" 
+                   class="px-5 py-2.5 text-sm font-medium text-white bg-[#22c55e] hover:bg-[#16a34a] rounded-full transition-colors">
+                    Задать вопрос
+                </a>
+
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-xl mx-auto px-8 pt-12 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+            
+            <!-- Left Column -->
+            <div class="lg:col-span-5">
+                <h1 class="text-5xl font-semibold tracking-tighter leading-tight mb-6">
+                    Давайте обсудим<br>ваш проект
+                </h1>
+                
+                <p class="text-lg text-gray-600 max-w-md mb-8">
+                    Я всегда открыт для новых предложений и интересных задач. 
+                    Напишите мне, и мы ответим вам в течение 24 часов.
+                </p>
+
+                <!-- Contact options -->
+                <div class="space-y-4 mb-10">
+                    <a href="/cdn-cgi/l/email-protection#a1c3d4cdcdc8d5c9cecfced3e1c6ccc0c8cd8fc2cecc" class="contact-link flex items-center gap-3 text-sm group">
+                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-envelope text-xs"></i>
+                        </div>
+                        <span class="group-hover:underline">Напишите на почту<br><span class="__cf_email__" data-cfemail="6200170e0e0b160a0d0c0d1022050f030b0e4c010d0f">[email&#160;protected]</span></span>
+                    </a>
+                    
+                    <a href="https://t.me/lamnotbulat" target="_blank" class="contact-link flex items-center gap-3 text-sm group">
+                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
+                            <i class="fab fa-telegram-plane text-xs"></i>
+                        </div>
+                        <span class="group-hover:underline">Напишите в Telegram<br>@lamnotbulat</span>
+                    </a>
+                    
+                    <a href="https://calendly.com/lamnotbulat" target="_blank" class="contact-link flex items-center gap-3 text-sm group">
+                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-calendar text-xs"></i>
+                        </div>
+                        <span class="group-hover:underline">Забронировать звонок<br>Calendly.com/lamnotbulat</span>
+                    </a>
+                </div>
+
+                <!-- Status -->
+                <div class="bg-black text-white rounded-3xl p-6 max-w-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div id="status-dot" class="status-dot bg-green-500"></div>
+                        <span class="font-semibold text-lg">Статус доступности</span>
+                    </div>
+                    <p class="text-green-400 text-sm mb-1">Свободен для новых проектов</p>
+                    <p class="text-green-400 text-xs">Ближайшее окно для начала работы: 15 июля</p>
+                </div>
+            </div>
+
+            <!-- Right Column - Form -->
+            <div class="lg:col-span-7">
+                <div class="bg-black text-white rounded-3xl p-8 max-w-lg">
+                    <form id="contact-form" onsubmit="submitForm(event)">
+                        
+                        <!-- Имя -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ИМЯ</label>
+                            <input type="text" id="name" required
+                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
+                                   placeholder="Как к вам обращаться?">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-medium text-gray-400 mb-1.5">EMAIL</label>
+                            <input type="email" id="email" required
+                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
+                                   placeholder="Ваша почта для связи">
+                        </div>
+
+                        <!-- Тип проекта -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ТИП ПРОЕКТА</label>
+                            
+                            <div class="custom-select" id="project-type-wrapper">
+                                <div onclick="toggleDropdown()" id="select-trigger"
+                                     class="select-trigger w-full rounded-xl px-4 py-3 text-sm flex items-center justify-between">
+                                    <span id="selected-value">Выберите тип проекта</span>
+                                    <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
+                                </div>
+                                
+                                <div id="select-options" class="select-options">
+                                    <div onclick="selectOption(this, 'Веб-сайт')" class="select-option">Веб-сайт</div>
+                                    <div onclick="selectOption(this, 'Дизайн сайта')" class="select-option">Дизайн сайта</div>
+                                    <div onclick="selectOption(this, 'Оформление соц-сетей')" class="select-option">Оформление соц-сетей</div>
+                                    <div onclick="selectOption(this, 'Брендинг')" class="select-option">Брендинг</div>
+                                    <div onclick="selectOption(this, 'Другое')" class="select-option">Другое</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Custom input for "Другое" -->
+                            <div id="custom-project-type" class="hidden mt-3">
+                                <input type="text" id="custom-type" 
+                                       class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
+                                       placeholder="Укажите тип проекта">
+                            </div>
+                            
+                            <input type="hidden" id="project-type-hidden" name="project-type">
+                        </div>
+
+                        <!-- Дополнительное имя / Описание (как в макете) -->
+                        <div class="mb-6">
+                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ИМЯ</label>
+                            <input type="text" id="name2" 
+                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
+                                   placeholder="Введите ваше имя">
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit"
+                                class="w-full bg-[#d1d5db] hover:bg-gray-300 text-black font-medium py-3 rounded-2xl text-sm transition-colors">
+                            Отправить
+                        </button>
+                        
+                        <p class="text-[10px] text-gray-500 mt-3 text-center">
+                            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 bg-white">
+        <div class="max-w-screen-xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-[220px]">
+                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Навигация</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
+                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
+                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
+                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Контакты</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="/cdn-cgi/l/email-protection#187a6d7474716c707776776a587f75797174367b7775" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="0163746d6d6875696e6f6e7341666c60686d2f626e6c">bulithonor@gmail.com</span></a>
+                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://t.me/lamnotbulat" target="_blank" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
+                        <a href="https://calendly.com/lamnotbulat" target="_blank" class="text-gray-500 hover:text-gray-700"><i class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-400 md:text-right self-end">
+                    © 2026 BukART. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Custom dropdown logic
+        let selectedValue = '';
+        
+        function toggleDropdown() {
+            const options = document.getElementById('select-options');
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function selectOption(element, value) {
+            // Deselect all
+            document.querySelectorAll('.select-option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current
+            element.classList.add('selected');
+            
+            // Update trigger
+            document.getElementById('selected-value').textContent = value;
+            document.getElementById('project-type-hidden').value = value;
+            
+            // Hide dropdown
+            document.getElementById('select-options').style.display = 'none';
+            
+            // Show/hide custom input
+            const customWrapper = document.getElementById('custom-project-type');
+            if (value === 'Другое') {
+                customWrapper.classList.remove('hidden');
+            } else {
+                customWrapper.classList.add('hidden');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const wrapper = document.getElementById('project-type-wrapper');
+            const options = document.getElementById('select-options');
+            if (!wrapper.contains(e.target)) {
+                options.style.display = 'none';
+            }
+        });
+
+        // Status dot color toggle every 10 seconds
+        function initStatusDot() {
+            const dot = document.getElementById('status-dot');
+            
+            setInterval(() => {
+                if (dot.classList.contains('bg-green-500')) {
+                    dot.classList.remove('bg-green-500');
+                    dot.classList.add('bg-red-500');
+                } else {
+                    dot.classList.remove('bg-red-500');
+                    dot.classList.add('bg-green-500');
+                }
+            }, 10000);
+        }
+
+        // Form submission
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('contact-form');
+            const projectType = document.getElementById('project-type-hidden').value;
+            const customType = document.getElementById('custom-type').value;
+            
+            // Simple validation
+            if (!projectType) {
+                alert('Пожалуйста, выберите тип проекта');
+                return;
+            }
+            
+            // Success state
+            form.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="mx-auto w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-check text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Спасибо!</h3>
+                    <p class="text-gray-300 mb-6">Ваша заявка отправлена. Мы свяжемся с вами в течение 24 часов.</p>
+                    
+                    <a href="index.html" 
+                       class="inline-block px-8 py-3 bg-white text-black text-sm font-medium rounded-2xl hover:bg-gray-200 transition-colors">
+                        Вернуться на главную
+                    </a>
+                </div>
+            `;
+        }
+
+        // Initialize everything
+        function init() {
+            initStatusDot();
+            
+            // Set initial selected value if needed
+            console.log('%c[BukART] Страница контактов загружена', 'color:#22c55e');
+        }
+
+        window.onload = init;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a08202610cf2e4d1',t:'MTc4MDg1OTk3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

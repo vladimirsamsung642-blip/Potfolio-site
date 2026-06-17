@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukART — Услуги</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+        }
+        
+        .nav-link.active {
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .logo-green {
+            background-color: #22c55e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .service-card:hover {
+            border-color: #22c55e;
+            box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.1);
+            transform: translateY(-2px);
+        }
+
+        .service-card.highlighted {
+            border: 2px solid #22c55e;
+            box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.15);
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #dcfce7;
+            color: #166534;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: #111827; /* черный по умолчанию */
+            color: white;
+        }
+        
+        .faq-question.open {
+            background-color: #22c55e; /* зелёный когда открыт */
+            color: black;
+        }
+
+        .faq-question:hover:not(.open) {
+            background-color: #1f2937;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: #f9fafb;
+            color: #374151;
+        }
+        
+        .faq-answer.open {
+            max-height: 200px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #dcfce7; /* светло-зелёный для ответа */
+            color: #111827; /* чёрный текст */
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.open .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-x-1">
+                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600">About</a>
+                    <a href="portfolio.html" class="nav-link text-gray-600">Portfolio</a>
+                    <a href="services.html" class="nav-link active font-medium">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-600">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="contact.html"
+                        class="px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                    Задать вопрос
+                </a>
+
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="max-w-screen-xl mx-auto px-8 pt-12 pb-10">
+        <h1 class="text-4xl font-semibold tracking-tight mb-2">Услуги &amp; Процесс</h1>
+        <p class="text-gray-600 max-w-2xl">
+            Помогаю бизнесу запускать современные цифровые продукты с прозрачным процессом и понятными результатами.
+        </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            
+            <!-- Card 1: UI/UX Дизайн -->
+            <div class="service-card bg-white rounded-3xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">UI/UX Дизайн</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• UX-аудит и аналитика</li>
+                            <li class="flex items-start gap-2">• Проектирование логики</li>
+                            <li class="flex items-start gap-2">• Интерактивные прототипы</li>
+                            <li class="flex items-start gap-2">• Создание UI-китов</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Дизайн сайтов (highlighted) -->
+            <div class="service-card bg-white rounded-3xl p-6 highlighted">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">Дизайн сайтов</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• Анализ конкурентов</li>
+                            <li class="flex items-start gap-2">• Продуманная структура</li>
+                            <li class="flex items-start gap-2">• Трендовый визуал</li>
+                            <li class="flex items-start gap-2">• Адаптация под мобильные</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Брендинг -->
+            <div class="service-card bg-white rounded-3xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">Брендинг</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• Анализ конкурентов</li>
+                            <li class="flex items-start gap-2">• Пользовательские сценарии</li>
+                            <li class="flex items-start gap-2">• Прототипирование</li>
+                            <li class="flex items-start gap-2">• Визуальный дизайн</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Графический дизайн -->
+            <div class="service-card bg-white rounded-3xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">Графический дизайн</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• Креативная идея</li>
+                            <li class="flex items-start gap-2">• Афиши и постеры</li>
+                            <li class="flex items-start gap-2">• Рекламные креативы</li>
+                            <li class="flex items-start gap-2">• Подготовка к печати</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Оформление соцсетей -->
+            <div class="service-card bg-white rounded-3xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">Оформление соцсетей</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• Визуальная концепция</li>
+                            <li class="flex items-start gap-2">• Дизайн обложек</li>
+                            <li class="flex items-start gap-2">• Шаблоны для постов</li>
+                            <li class="flex items-start gap-2">• Оформление сторис</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Редизайн проектов -->
+            <div class="service-card bg-white rounded-3xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-lg tracking-tight">Редизайн проектов</h3>
+                        <p class="text-xs text-green-600 font-medium mt-0.5">от 50 000 ₽ • 2–4 недели</p>
+                        
+                        <ul class="mt-4 space-y-1.5 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">• Поиск узких мест</li>
+                            <li class="flex items-start gap-2">• Улучшение навигации</li>
+                            <li class="flex items-start gap-2">• Освежение стиля</li>
+                            <li class="flex items-start gap-2">• Повышение конверсии</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-screen-xl mx-auto px-8 pb-20">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-question text-green-600"></i>
+            </div>
+            <h2 class="text-2xl font-semibold tracking-tight">FAQ</h2>
+        </div>
+
+        <div class="max-w-3xl space-y-3">
+            
+            <!-- FAQ 1 -->
+            <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                <div onclick="toggleFAQ(this)" class="faq-question flex items-center justify-between px-5 py-4">
+                    <span class="font-medium">Как происходит оплата?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer px-5 text-sm text-gray-600">
+                    <div class="pb-4">
+                        Работаю по предоплате 50% перед началом этапа и 50% по завершении. 
+                        Возможна поэтапная оплата для больших проектов.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                <div onclick="toggleFAQ(this)" class="faq-question flex items-center justify-between px-5 py-4">
+                    <span class="font-medium">Какие сроки разработки?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer px-5 text-sm text-gray-600">
+                    <div class="pb-4">
+                        Стандартные сроки — от 2 до 4 недель в зависимости от объёма проекта. 
+                        Для срочных проектов возможны индивидуальные условия.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                <div onclick="toggleFAQ(this)" class="faq-question flex items-center justify-between px-5 py-4">
+                    <span class="font-medium">Работаете ли вы по договору?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer px-5 text-sm text-gray-600">
+                    <div class="pb-4">
+                        Да, всегда заключаю официальный договор. 
+                        Это обеспечивает прозрачность и защиту обеих сторон.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                <div onclick="toggleFAQ(this)" class="faq-question flex items-center justify-between px-5 py-4">
+                    <span class="font-medium">Делаете ли вы поддержку после сдачи?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer px-5 text-sm text-gray-600">
+                    <div class="pb-4">
+                        Да, предоставляю бесплатную поддержку в течение 30 дней после сдачи проекта. 
+                        Дальнейшее сопровождение обсуждается индивидуально.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 bg-white">
+        <div class="max-w-screen-xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-[220px]">
+                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Навигация</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
+                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
+                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
+                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Контакты</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="/cdn-cgi/l/email-protection#395b4c52584b4d5d5c4a505e57795e54585055175a5654" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="6507100e0417110100160c020b250208040c094b060a08">[email&#160;protected]</span></a>
+                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-400 md:text-right self-end">
+                    © 2025 BukART. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" onclick="hideContactModal(event)"
+         class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold">Задать вопрос</h3>
+                <button onclick="hideContactModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitContactForm(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Ваше имя</label>
+                        <input type="text" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Email</label>
+                        <input type="email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="you@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Сообщение</label>
+                        <textarea required rows="4" class="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-green-500 resize-y" placeholder="Расскажите о вашем проекте..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="hideContactModal()" 
+                            class="flex-1 py-3 text-sm font-medium border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
+                        Отмена
+                    </button>
+                    <button type="submit" 
+                            class="flex-1 py-3 bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-medium rounded-full transition-colors">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // FAQ Accordion
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+
+            // Close all other answers
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-question').forEach(el => {
+                el.classList.remove('open');
+            });
+
+            // Toggle current
+            if (!isOpen) {
+                answer.classList.add('open');
+                element.classList.add('open');
+            }
+        }
+
+        // Contact modal (shared)
+        function showContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function hideContactModal(event) {
+            if (!event || event.target.id === 'contactModal') {
+                const modal = document.getElementById('contactModal');
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            const modal = document.getElementById('contactModal');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl text-center">
+                    <div class="mx-auto w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Спасибо!</h3>
+                    <p class="text-gray-600 mb-6">Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.</p>
+                    
+                    <button onclick="location.reload()" 
+                            class="px-8 py-2.5 bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full transition-colors">
+                        Закрыть
+                    </button>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                location.reload();
+            }, 2800);
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('contactModal');
+                if (!modal.classList.contains('hidden')) {
+                    hideContactModal();
+                }
+            }
+        });
+
+        // Initialize
+        function init() {
+            console.log('%c[BukART] Страница Услуг загружена', 'color:#22c55e');
+        }
+
+        window.onload = init;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0823361fd93b80f',t:'MTc4MDg2MTk4Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

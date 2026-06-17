@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukART — Пластилин</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+        }
+        
+        .nav-link.active {
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .logo-green {
+            background-color: #22c55e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .filter-btn {
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: #111827;
+            color: white;
+        }
+        
+        .filter-btn:not(.active):hover {
+            background-color: #f3f4f6;
+        }
+
+        .typing-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .section-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-hero {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: #111827;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+    <!-- Navbar -->
+    <nav class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-x-1">
+                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="index.html" class="nav-link text-gray-600">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600">About</a>
+                    <a href="portfolio.html" class="nav-link active font-medium">Portfolio</a>
+                    <a href="services.html" class="nav-link text-gray-600">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-600">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="contact.html"
+                        class="px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+                    Задать вопрос
+                </a>
+
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-xl mx-auto px-8 pt-8">
+        <!-- Back link -->
+        <a href="portfolio.html" class="inline-flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-700 mb-6">
+            <i class="fas fa-arrow-left text-xs"></i>
+            <span>Назад к проектам</span>
+        </a>
+
+        <!-- Filters (same as portfolio) -->
+        <div class="flex flex-wrap gap-2 mb-6" id="filters">
+            <button data-filter="all" onclick="filterProjects('all')" class="filter-btn active bg-black text-white">All</button>
+            <button data-filter="sketch" onclick="filterProjects('sketch')" class="filter-btn bg-gray-100 text-gray-700">Sketch</button>
+            <button data-filter="ui-ux" onclick="filterProjects('ui-ux')" class="filter-btn bg-gray-100 text-gray-700">UI/UX</button>
+            <button data-filter="web" onclick="filterProjects('web')" class="filter-btn bg-gray-100 text-gray-700">Web</button>
+        </div>
+
+        <!-- Project Header -->
+        <div id="project-content">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-6 mb-8">
+                <!-- Left: Title -->
+                <div class="lg:col-span-7">
+                    <h1 class="text-4xl font-semibold tracking-tight">Пластилин</h1>
+                    
+                    <!-- Tags -->
+                    <div class="flex gap-2 mt-3">
+                        <span class="inline-block text-xs px-3 py-1 bg-black text-white rounded-full">All</span>
+                        <span class="inline-block text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Sketch</span>
+                        <span class="inline-block text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">UI/UX</span>
+                        <span class="inline-block text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Web</span>
+                    </div>
+                </div>
+
+                <!-- Right: Meta info -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                    <div>
+                        <div class="meta-label">КЛИЕНТ</div>
+                        <div class="meta-value">ООО «ПЛАСТИЛИН»</div>
+                    </div>
+                    <div>
+                        <div class="meta-label">ГОД</div>
+                        <div class="meta-value">2025</div>
+                    </div>
+                    <div>
+                        <div class="meta-label">Тип</div>
+                        <div class="meta-value">Брендинг</div>
+                    </div>
+                    <div>
+                        <div class="meta-label">ССЫЛКА</div>
+                        <a href="#" onclick="openLinkView(); return false;" 
+                           class="meta-value text-[#22c55e] hover:underline flex items-center gap-x-1">
+                            Link View
+                            <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <!-- 
+                Большой баннер проекта. Вставь изображение так:
+                <img src="images/plastilin-banner.jpg" alt="Пластилин — айдентика" class="w-full h-full object-cover">
+            -->
+            <div class="project-hero mb-10 bg-gray-200 flex items-center justify-center text-gray-400 text-sm" style="min-height: 320px;">
+                <img src="images/full-portfo.jpg"Пластилин — айдентика" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Контекст & Задача -->
+            <div class="mb-10">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6">Контекст &amp; Задача</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8">
+                    <!-- Left label -->
+                    <div class="lg:col-span-4 mb-4 lg:mb-0">
+                        <div class="text-lg font-medium text-gray-700">Основная задача</div>
+                    </div>
+                    
+                    <!-- Right: Typing text -->
+                    <div class="lg:col-span-8">
+                        <p id="typing-text" class="typing-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Проблема & Решение -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+                <!-- Проблема -->
+                <div id="problem-box" class="section-box bg-gray-100 rounded-2xl p-6">
+                    <div class="font-semibold text-sm text-gray-500 mb-2">Проблема</div>
+                    <p class="text-sm leading-relaxed text-gray-700">
+                        Отсутствие узнаваемого характера. Текущий образ студии был слишком "правильным" и скучным, из-за чего бренд не привлекал молодежь и сливался с классическими танцевальными школами.
+                    </p>
+                </div>
+
+                <!-- Решение -->
+                <div id="solution-box" class="section-box bg-gray-100 rounded-2xl p-6">
+                    <div class="font-semibold text-sm text-gray-500 mb-2">Решение</div>
+                    <p class="text-sm leading-relaxed text-gray-700">
+                        Создан смелый визуальный язык на основе графики-стикеров. Яркий леттеринг, контрастные цвета и паттерны, символизирующие движение, помогли бренду заявить о себе и показать настоящую энергию современного танца.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div id="cta-box" class="section-box bg-black text-white rounded-3xl p-8 text-center mb-16">
+                <h3 class="text-2xl font-semibold tracking-tight mb-1">Не нашли нужный тип проекта?</h3>
+                <p class="text-white/80 mb-5">Напишите, обсудим</p>
+                
+                <a href="contact.html" 
+                        class="bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-medium px-8 py-2.5 rounded-full transition-colors inline-block text-center">
+                    Начать проект
+                </a>
+            </div>
+        </div>
+
+        <!-- Empty state for other filters -->
+        <div id="empty-state" class="hidden py-20 text-center">
+            <div class="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-folder-open text-gray-400 text-3xl"></i>
+            </div>
+            <p class="text-gray-500 text-lg">В этой категории пока нет проектов</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 bg-white mt-12">
+        <div class="max-w-screen-xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-[220px]">
+                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Навигация</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
+                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
+                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
+                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="font-semibold text-sm mb-4">Контакты</div>
+                    <div class="space-y-2 text-sm">
+                        <a href="/cdn-cgi/l/email-protection#a2c0d7c9c3d0d6c6c7d1cbc5cce2c5cfc3cbce8cc1cdcf" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="5735223c3625233332243e303917303a363e3b7934383a">[email&#160;protected]</span></a>
+                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-400 md:text-right self-end">
+                    © 2025 BukART. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" onclick="hideContactModal(event)"
+         class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold">Задать вопрос</h3>
+                <button onclick="hideContactModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitContactForm(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Ваше имя</label>
+                        <input type="text" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Email</label>
+                        <input type="email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-500" placeholder="you@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Сообщение</label>
+                        <textarea required rows="4" class="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-green-500 resize-y" placeholder="Расскажите о вашем проекте..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="hideContactModal()" 
+                            class="flex-1 py-3 text-sm font-medium border border-gray-200 rounded-full hover:bg-gray-50 transition-colors">
+                        Отмена
+                    </button>
+                    <button type="submit" 
+                            class="flex-1 py-3 bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-medium rounded-full transition-colors">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Typewriter effect for the main text
+        function typeWriter(element, text, speed = 28) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                } else {
+                    // Typing finished — start sequential reveals
+                    startSequentialReveal();
+                }
+            }
+            
+            typing();
+        }
+
+        // Sequential appearance of sections
+        function startSequentialReveal() {
+            const problemBox = document.getElementById('problem-box');
+            const solutionBox = document.getElementById('solution-box');
+            const ctaBox = document.getElementById('cta-box');
+
+            // First Проблема
+            setTimeout(() => {
+                problemBox.classList.add('visible');
+            }, 400);
+
+            // Then Решение
+            setTimeout(() => {
+                solutionBox.classList.add('visible');
+            }, 1100);
+
+            // Finally the black CTA box
+            setTimeout(() => {
+                ctaBox.classList.add('visible');
+            }, 1900);
+        }
+
+        // Filter functionality (only All has content)
+        function filterProjects(filter) {
+            const content = document.getElementById('project-content');
+            const emptyState = document.getElementById('empty-state');
+            const filterButtons = document.querySelectorAll('#filters button');
+
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-black', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+                
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active', 'bg-black', 'text-white');
+                    btn.classList.remove('bg-gray-100', 'text-gray-700');
+                }
+            });
+
+            if (filter === 'all') {
+                content.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+            } else {
+                content.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            }
+        }
+
+        // Link View (empty but working)
+        function openLinkView() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-sm w-full p-8 text-center shadow-xl">
+                    <div class="mx-auto w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-link text-gray-400 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Ссылка на проект</h3>
+                    <p class="text-sm text-gray-600 mb-6">Прямая ссылка на проект в разработке. Скоро здесь будет рабочая ссылка.</p>
+                    
+                    <button onclick="this.closest('.fixed').remove()" 
+                            class="px-6 py-2 text-sm font-medium bg-gray-900 text-white rounded-full">
+                        Закрыть
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Contact modal functions
+        function showContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function hideContactModal(event) {
+            if (!event || event.target.id === 'contactModal') {
+                const modal = document.getElementById('contactModal');
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            const modal = document.getElementById('contactModal');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-xl text-center">
+                    <div class="mx-auto w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Спасибо!</h3>
+                    <p class="text-gray-600 mb-6">Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.</p>
+                    
+                    <button onclick="location.reload()" 
+                            class="px-8 py-2.5 bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full transition-colors">
+                        Закрыть
+                    </button>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                location.reload();
+            }, 2800);
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const contactModal = document.getElementById('contactModal');
+                if (!contactModal.classList.contains('hidden')) {
+                    hideContactModal();
+                }
+                // Close any dynamic modals
+                document.querySelectorAll('.fixed.inset-0').forEach(el => el.remove());
+            }
+        });
+
+        // Initialize everything
+        function init() {
+            // Start typewriter effect
+            const typingElement = document.getElementById('typing-text');
+            const fullText = "Основной задачей было создание динамичной и дерзкой айдентики, которая передает драйв современных танцев, помогает студии выделиться среди конкурентов и привлекает молодежную аудиторию.";
+            
+            // Start typing after small delay
+            setTimeout(() => {
+                typeWriter(typingElement, fullText, 26);
+            }, 600);
+
+            // Make sure All is active by default
+            const allBtn = document.querySelector('#filters button[data-filter="all"]');
+            if (allBtn) {
+                allBtn.classList.add('active', 'bg-black', 'text-white');
+                allBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            }
+
+            // Show initial sections hidden until typing finishes (they start with opacity 0)
+            console.log('%c[BukART] Страница проекта загружена', 'color:#22c55e');
+        }
+
+        window.onload = init;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a08242533fc5b80f',t:'MTc4MDg2MjU5NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
