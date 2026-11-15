@@ -1,422 +1,293 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BukART — Обсудим проект</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
-        
-        .nav-link {
-            transition: color 0.2s ease;
-        }
-        
-        .nav-link:hover {
-            color: #22c55e;
-        }
-        
-        .nav-link.active {
-            color: #22c55e;
-            font-weight: 500;
-        }
-        
-        .logo-green {
-            background-color: #22c55e;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-
-        .form-input {
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            color: white;
-            transition: all 0.2s ease;
-        }
-        
-        .form-input:focus {
-            border-color: #22c55e;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: #9ca3af;
-        }
-
-        .custom-select {
-            position: relative;
-        }
-
-        .select-trigger {
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .select-trigger:hover {
-            border-color: #22c55e;
-        }
-
-        .select-options {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 12px;
-            z-index: 50;
-            margin-top: 4px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
-        }
-
-        .custom-select:hover .select-options {
-            display: block;
-        }
-
-        .select-option {
-            padding: 10px 16px;
-            color: #d1d5db;
-            cursor: pointer;
-            transition: all 0.1s ease;
-        }
-
-        .select-option:hover {
-            background-color: #374151;
-            color: white;
-        }
-
-        .select-option.selected {
-            background-color: #22c55e;
-            color: black;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 9999px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-link {
-            transition: all 0.2s ease;
-        }
-        
-        .contact-link:hover {
-            color: #22c55e;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обсудить проект — Портфолио Булата</title>
+  <meta name="description" content="Напишите Булату, чтобы обсудить ваш проект. Ответ в течение 24 часов.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Обсудить проект — Портфолио Булата">
+  <meta property="og:description" content="Оставьте заявку на дизайн сайта, UI/UX или брендинг — отвечу в течение 24 часов.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-white font-sans text-gray-900">
-    <!-- Navbar -->
-    <nav class="border-b border-gray-100">
-        <div class="max-w-screen-xl mx-auto px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="index.html" class="flex items-center gap-x-1">
-                        <span class="text-2xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded">ART</span></span>
-                    </a>
-                </div>
+<body data-page="contact">
+  <!-- Общая шапка -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="На главную">
+        <svg viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0" y="29" width="11" height="11" rx="3" fill="currentColor"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H62C64.7614 0 67 2.23858 67 5V35C67 37.7614 64.7614 40 62 40H15V33C15 30.2386 17.2386 28 20 28H26V12H5C2.23858 12 0 9.76142 0 7V0ZM40 11H52C53.6569 11 55 12.3431 55 14V26C55 27.6569 53.6569 29 52 29H40C38.3431 29 37 27.6569 37 26V14C37 12.3431 38.3431 11 40 11Z" fill="currentColor"></path>
+        </svg>
+      </a>
 
-                <!-- Menu -->
-                <div class="hidden md:flex items-center gap-x-9 text-sm">
-                    <a href="index.html" class="nav-link text-gray-600">Home</a>
-                    <a href="about.html" class="nav-link text-gray-600">About</a>
-                    <a href="portfolio.html" class="nav-link text-gray-600">Portfolio</a>
-                    <a href="services.html" class="nav-link text-gray-600">Services</a>
-                    <a href="contact.html" class="nav-link active font-medium">Contacts</a>
-                </div>
+      <nav class="nav-capsule" id="nav-capsule" aria-label="Основная навигация">
+        <div class="nav-pill" id="nav-pill" aria-hidden="true"></div>
+        <a href="index.html" class="nav-link" data-nav="home">Главная</a>
+        <a href="about.html" class="nav-link" data-nav="about">Обо мне</a>
+        <a href="portfolio.html" class="nav-link" data-nav="portfolio">Портфолио</a>
+        <a href="services.html" class="nav-link" data-nav="services">Услуги</a>
+        <a href="contact.html" class="nav-link is-active" data-nav="contact">Купить</a>
+      </nav>
 
-                <!-- CTA Button -->
-                <a href="contact.html" 
-                   class="px-5 py-2.5 text-sm font-medium text-white bg-[#22c55e] hover:bg-[#16a34a] rounded-full transition-colors">
-                    Задать вопрос
-                </a>
-
-                <button class="md:hidden text-gray-600">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="max-w-screen-xl mx-auto px-8 pt-12 pb-16">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
-            
-            <!-- Left Column -->
-            <div class="lg:col-span-5">
-                <h1 class="text-5xl font-semibold tracking-tighter leading-tight mb-6">
-                    Давайте обсудим<br>ваш проект
-                </h1>
-                
-                <p class="text-lg text-gray-600 max-w-md mb-8">
-                    Я всегда открыт для новых предложений и интересных задач. 
-                    Напишите мне, и мы ответим вам в течение 24 часов.
-                </p>
-
-                <!-- Contact options -->
-                <div class="space-y-4 mb-10">
-                    <a href="/cdn-cgi/l/email-protection#a1c3d4cdcdc8d5c9cecfced3e1c6ccc0c8cd8fc2cecc" class="contact-link flex items-center gap-3 text-sm group">
-                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
-                            <i class="fas fa-envelope text-xs"></i>
-                        </div>
-                        <span class="group-hover:underline">Напишите на почту<br><span class="__cf_email__" data-cfemail="6200170e0e0b160a0d0c0d1022050f030b0e4c010d0f">[email&#160;protected]</span></span>
-                    </a>
-                    
-                    <a href="https://t.me/lamnotbulat" target="_blank" class="contact-link flex items-center gap-3 text-sm group">
-                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
-                            <i class="fab fa-telegram-plane text-xs"></i>
-                        </div>
-                        <span class="group-hover:underline">Напишите в Telegram<br>@lamnotbulat</span>
-                    </a>
-                    
-                    <a href="https://calendly.com/lamnotbulat" target="_blank" class="contact-link flex items-center gap-3 text-sm group">
-                        <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
-                            <i class="fas fa-calendar text-xs"></i>
-                        </div>
-                        <span class="group-hover:underline">Забронировать звонок<br>Calendly.com/lamnotbulat</span>
-                    </a>
-                </div>
-
-                <!-- Status -->
-                <div class="bg-black text-white rounded-3xl p-6 max-w-sm">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div id="status-dot" class="status-dot bg-green-500"></div>
-                        <span class="font-semibold text-lg">Статус доступности</span>
-                    </div>
-                    <p class="text-green-400 text-sm mb-1">Свободен для новых проектов</p>
-                    <p class="text-green-400 text-xs">Ближайшее окно для начала работы: 15 июля</p>
-                </div>
-            </div>
-
-            <!-- Right Column - Form -->
-            <div class="lg:col-span-7">
-                <div class="bg-black text-white rounded-3xl p-8 max-w-lg">
-                    <form id="contact-form" onsubmit="submitForm(event)">
-                        
-                        <!-- Имя -->
-                        <div class="mb-5">
-                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ИМЯ</label>
-                            <input type="text" id="name" required
-                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
-                                   placeholder="Как к вам обращаться?">
-                        </div>
-
-                        <!-- Email -->
-                        <div class="mb-5">
-                            <label class="block text-xs font-medium text-gray-400 mb-1.5">EMAIL</label>
-                            <input type="email" id="email" required
-                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
-                                   placeholder="Ваша почта для связи">
-                        </div>
-
-                        <!-- Тип проекта -->
-                        <div class="mb-5">
-                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ТИП ПРОЕКТА</label>
-                            
-                            <div class="custom-select" id="project-type-wrapper">
-                                <div onclick="toggleDropdown()" id="select-trigger"
-                                     class="select-trigger w-full rounded-xl px-4 py-3 text-sm flex items-center justify-between">
-                                    <span id="selected-value">Выберите тип проекта</span>
-                                    <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
-                                </div>
-                                
-                                <div id="select-options" class="select-options">
-                                    <div onclick="selectOption(this, 'Веб-сайт')" class="select-option">Веб-сайт</div>
-                                    <div onclick="selectOption(this, 'Дизайн сайта')" class="select-option">Дизайн сайта</div>
-                                    <div onclick="selectOption(this, 'Оформление соц-сетей')" class="select-option">Оформление соц-сетей</div>
-                                    <div onclick="selectOption(this, 'Брендинг')" class="select-option">Брендинг</div>
-                                    <div onclick="selectOption(this, 'Другое')" class="select-option">Другое</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Custom input for "Другое" -->
-                            <div id="custom-project-type" class="hidden mt-3">
-                                <input type="text" id="custom-type" 
-                                       class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
-                                       placeholder="Укажите тип проекта">
-                            </div>
-                            
-                            <input type="hidden" id="project-type-hidden" name="project-type">
-                        </div>
-
-                        <!-- Дополнительное имя / Описание (как в макете) -->
-                        <div class="mb-6">
-                            <label class="block text-xs font-medium text-gray-400 mb-1.5">ИМЯ</label>
-                            <input type="text" id="name2" 
-                                   class="form-input w-full rounded-xl px-4 py-3 text-sm placeholder-gray-400"
-                                   placeholder="Введите ваше имя">
-                        </div>
-
-                        <!-- Submit -->
-                        <button type="submit"
-                                class="w-full bg-[#d1d5db] hover:bg-gray-300 text-black font-medium py-3 rounded-2xl text-sm transition-colors">
-                            Отправить
-                        </button>
-                        
-                        <p class="text-[10px] text-gray-500 mt-3 text-center">
-                            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                        </p>
-                    </form>
-                </div>
-            </div>
-            
-        </div>
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Открыть меню">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
     </div>
+  </header>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-100 bg-white">
-        <div class="max-w-screen-xl mx-auto px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10">
-                
-                <div class="md:col-span-1">
-                    <div class="flex items-center mb-4">
-                        <a href="index.html" class="flex items-center">
-                            <span class="text-xl font-bold tracking-tighter">Buk<span class="logo-green text-white px-1.5 py-0.5 rounded text-base">ART</span></span>
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-600 max-w-[220px]">
-                        Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
-                    </p>
-                </div>
+  <!-- Мобильное меню -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-head">
+        <span class="brand-logo">
+          <svg viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0" y="29" width="11" height="11" rx="3" fill="currentColor"></rect>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H62C64.7614 0 67 2.23858 67 5V35C67 37.7614 64.7614 40 62 40H15V33C15 30.2386 17.2386 28 20 28H26V12H5C2.23858 12 0 9.76142 0 7V0ZM40 11H52C53.6569 11 55 12.3431 55 14V26C55 27.6569 53.6569 29 52 29H40C38.3431 29 37 27.6569 37 26V14C37 12.3431 38.3431 11 40 11Z" fill="currentColor"></path>
+          </svg>
+        </span>
+        <button type="button" class="mobile-close-btn" id="mobile-close-btn" aria-label="Закрыть меню">✕</button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link" data-nav="home">Главная</a>
+        <a href="about.html" class="mobile-nav-link" data-nav="about">Обо мне</a>
+        <a href="portfolio.html" class="mobile-nav-link" data-nav="portfolio">Портфолио</a>
+        <a href="services.html" class="mobile-nav-link" data-nav="services">Услуги</a>
+        <a href="contact.html" class="mobile-nav-link is-active" data-nav="contact">Купить</a>
+      </div>
+    </div>
+  </div>
 
-                <div>
-                    <div class="font-semibold text-sm mb-4">Навигация</div>
-                    <div class="space-y-2 text-sm">
-                        <a href="index.html" class="block text-gray-600 hover:text-gray-900">Главная</a>
-                        <a href="about.html" class="block text-gray-600 hover:text-gray-900">Обо мне</a>
-                        <a href="portfolio.html" class="block text-gray-600 hover:text-gray-900">Портфолио</a>
-                        <a href="services.html" class="block text-gray-600 hover:text-gray-900">Услуги</a>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="font-semibold text-sm mb-4">Контакты</div>
-                    <div class="space-y-2 text-sm">
-                        <a href="/cdn-cgi/l/email-protection#187a6d7474716c707776776a587f75797174367b7775" class="block text-gray-600 hover:text-gray-900"><span class="__cf_email__" data-cfemail="0163746d6d6875696e6f6e7341666c60686d2f626e6c">bulithonor@gmail.com</span></a>
-                        <a href="tel:+79001234567" class="block text-gray-600 hover:text-gray-900">+7 (900) 123-45-67</a>
-                    </div>
-                    
-                    <div class="flex gap-3 mt-4">
-                        <a href="https://t.me/lamnotbulat" target="_blank" class="text-gray-500 hover:text-gray-700"><i class="fab fa-telegram-plane"></i></a>
-                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-instagram"></i></a>
-                        <a href="https://calendly.com/lamnotbulat" target="_blank" class="text-gray-500 hover:text-gray-700"><i class="fas fa-calendar"></i></a>
-                    </div>
-                </div>
-
-                <div class="text-xs text-gray-400 md:text-right self-end">
-                    © 2026 BukART. Все права защищены.
-                </div>
+  <!-- Основной контент -->
+  <main id="page-main">
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Левая колонка -->
+          <div>
+            <h1 class="contact-title">
+              Давайте обсудим<br>
+              ваш проект?
+            </h1>
+            <p class="contact-sub">
+              Я всегда открыт для новых предложений и интересных задач.
+              Напишите мне, и мы ответим вам в течение 24 часов.
+            </p>
+            <div class="contact-direct-note">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Свободен для новых проектов · Ответ до 24 часов</span>
             </div>
-        </div>
-    </footer>
+          </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Custom dropdown logic
-        let selectedValue = '';
-        
-        function toggleDropdown() {
-            const options = document.getElementById('select-options');
-            options.style.display = options.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function selectOption(element, value) {
-            // Deselect all
-            document.querySelectorAll('.select-option').forEach(opt => opt.classList.remove('selected'));
-            
-            // Select current
-            element.classList.add('selected');
-            
-            // Update trigger
-            document.getElementById('selected-value').textContent = value;
-            document.getElementById('project-type-hidden').value = value;
-            
-            // Hide dropdown
-            document.getElementById('select-options').style.display = 'none';
-            
-            // Show/hide custom input
-            const customWrapper = document.getElementById('custom-project-type');
-            if (value === 'Другое') {
-                customWrapper.classList.remove('hidden');
-            } else {
-                customWrapper.classList.add('hidden');
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            const wrapper = document.getElementById('project-type-wrapper');
-            const options = document.getElementById('select-options');
-            if (!wrapper.contains(e.target)) {
-                options.style.display = 'none';
-            }
-        });
-
-        // Status dot color toggle every 10 seconds
-        function initStatusDot() {
-            const dot = document.getElementById('status-dot');
-            
-            setInterval(() => {
-                if (dot.classList.contains('bg-green-500')) {
-                    dot.classList.remove('bg-green-500');
-                    dot.classList.add('bg-red-500');
-                } else {
-                    dot.classList.remove('bg-red-500');
-                    dot.classList.add('bg-green-500');
-                }
-            }, 10000);
-        }
-
-        // Form submission
-        function submitForm(e) {
-            e.preventDefault();
-            
-            const form = document.getElementById('contact-form');
-            const projectType = document.getElementById('project-type-hidden').value;
-            const customType = document.getElementById('custom-type').value;
-            
-            // Simple validation
-            if (!projectType) {
-                alert('Пожалуйста, выберите тип проекта');
-                return;
-            }
-            
-            // Success state
-            form.innerHTML = `
-                <div class="text-center py-8">
-                    <div class="mx-auto w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-check text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Спасибо!</h3>
-                    <p class="text-gray-300 mb-6">Ваша заявка отправлена. Мы свяжемся с вами в течение 24 часов.</p>
-                    
-                    <a href="index.html" 
-                       class="inline-block px-8 py-3 bg-white text-black text-sm font-medium rounded-2xl hover:bg-gray-200 transition-colors">
-                        Вернуться на главную
-                    </a>
+          <!-- Правая колонка: мятная форма отправки на почту -->
+          <div>
+            <div class="contact-form-card">
+              <form id="project-contact-form" novalidate>
+                <div class="form-field">
+                  <label class="form-label" for="field-name">Имя</label>
+                  <input
+                    type="text"
+                    id="field-name"
+                    name="name"
+                    class="form-control"
+                    placeholder="Как к вам обращаться?"
+                    required
+                  >
                 </div>
-            `;
-        }
 
-        // Initialize everything
-        function init() {
-            initStatusDot();
-            
-            // Set initial selected value if needed
-            console.log('%c[BukART] Страница контактов загружена', 'color:#22c55e');
-        }
+                <div class="form-field">
+                  <label class="form-label" for="field-email">Email</label>
+                  <input
+                    type="email"
+                    id="field-email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Ваша почта для связи"
+                    required
+                  >
+                </div>
 
-        window.onload = init;
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a08202610cf2e4d1',t:'MTc4MDg1OTk3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+                <div class="form-field">
+                  <label class="form-label" id="project-type-label">Тип проекта</label>
+                  <div class="custom-select" id="project-type-select">
+                    <button
+                      type="button"
+                      class="custom-select-trigger"
+                      id="select-trigger"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      aria-labelledby="project-type-label select-value-label"
+                    >
+                      <span id="select-value-label">Веб-сайт для связи</span>
+                      <svg class="custom-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </button>
+
+                    <div class="custom-select-menu" role="listbox">
+                      <button type="button" class="custom-select-option is-selected" data-value="Веб-сайт">Веб-сайт</button>
+                      <button type="button" class="custom-select-option" data-value="Дизайн сайта">Дизайн сайта</button>
+                      <button type="button" class="custom-select-option" data-value="Оформление соц-сетей">Оформление соц-сетей</button>
+                      <button type="button" class="custom-select-option" data-value="Брендинг">Брендинг</button>
+                      <button type="button" class="custom-select-option" data-value="UI/UX дизайн">UI/UX дизайн</button>
+                      <button type="button" class="custom-select-option" data-value="Графический дизайн">Графический дизайн</button>
+                      <button type="button" class="custom-select-option" data-value="Редизайн проекта">Редизайн проекта</button>
+                      <button type="button" class="custom-select-option" data-value="Другое">Другое</button>
+                    </div>
+
+                    <input type="hidden" id="project-type-input" name="project_type" value="Веб-сайт">
+                  </div>
+
+                  <div class="custom-other-wrap" id="custom-other-wrap">
+                    <input
+                      type="text"
+                      id="custom-other-input"
+                      class="form-control"
+                      placeholder="Укажите ваш тип проекта"
+                    >
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label" for="field-budget">Бюджет</label>
+                  <input
+                    type="text"
+                    id="field-budget"
+                    name="budget"
+                    class="form-control"
+                    placeholder="Бюджет проекта"
+                  >
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label" for="field-message">Пожелания</label>
+                  <textarea
+                    id="field-message"
+                    name="message"
+                    class="form-control"
+                    placeholder="Постарайтесь максимально подробно описать ваши пожелания по проекту"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-submit-wrap">
+                  <button type="submit" class="form-submit-btn" id="contact-submit-btn">
+                    Отправить
+                  </button>
+                  <p class="form-privacy-note">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
+                </div>
+
+                <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Общий футер -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="На главную">
+            <svg viewBox="0 0 68 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="29" width="11" height="11" rx="3" fill="currentColor"></rect>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H62C64.7614 0 67 2.23858 67 5V35C67 37.7614 64.7614 40 62 40H15V33C15 30.2386 17.2386 28 20 28H26V12H5C2.23858 12 0 9.76142 0 7V0ZM40 11H52C53.6569 11 55 12.3431 55 14V26C55 27.6569 53.6569 29 52 29H40C38.3431 29 37 27.6569 37 26V14C37 12.3431 38.3431 11 40 11Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <p class="footer-brand-desc">
+            Создаю эффективные цифровые решения, которые помогают бизнесу расти и выделяться.
+          </p>
+          <div class="footer-socials">
+            <a href="#social-website" class="footer-social-link" data-social-key="website" aria-label="Сайт / Dribbble">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3.6 9h16.8M3.6 15h16.8M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"></path>
+              </svg>
+            </a>
+            <a href="#social-behance" class="footer-social-link" data-social-key="behance" aria-label="Портфолио / Палитра">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h5a4 4 0 0 0 0-8h-5z"></path>
+                <circle cx="8" cy="10" r="1" fill="currentColor"></circle>
+                <circle cx="11.5" cy="7.5" r="1" fill="currentColor"></circle>
+                <circle cx="15.5" cy="8.5" r="1" fill="currentColor"></circle>
+              </svg>
+            </a>
+            <a href="#social-awards" class="footer-social-link" data-social-key="education" aria-label="Награды и сертификаты">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10l10-5 10 5-10 5-10-5z"></path>
+                <path d="M6 12v5c0 1.6 2.7 3 6 3s6-1.4 6-3v-5"></path>
+                <path d="M22 10v6"></path>
+              </svg>
+            </a>
+            <a href="#social-profile" class="footer-social-link" data-social-key="profile" aria-label="Профиль">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Навигация</h3>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Главная</a></li>
+            <li><a href="portfolio.html" class="footer-nav-link">Портфолио</a></li>
+            <li><a href="about.html" class="footer-nav-link">Обо мне</a></li>
+            <li><a href="services.html" class="footer-nav-link">Услуги</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Контакты</h3>
+          <ul class="footer-contacts-list">
+            <li>
+              <a href="mailto:bulithonor@gmail.com" class="footer-contact-link" data-contact-key="email">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11zm2.2.3L12 11.7l6.8-4.9H5.2zm13.8 2.1l-6.4 4.6a1 1 0 0 1-1.2 0L5 8.9v8.6c0 .3.2.5.5.5h13c.3 0 .5-.2.5-.5V8.9z"></path>
+                </svg>
+                <span class="contact-label">BULITHONOR@GMAIL.COM</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact-telegram" class="footer-contact-link" data-contact-key="telegram">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M21.4 4.3a1 1 0 0 0-1.05-.16L2.9 11.1a1 1 0 0 0 .06 1.88l4.5 1.48 1.72 5.15a1 1 0 0 0 1.66.38l2.58-2.5 4.4 3.24a1 1 0 0 0 1.56-.6l2.45-14.6a1 1 0 0 0-.43-1.23zM9.4 13.7l8.2-5.4-6.3 6.9-.4 3.1-1.5-4.6z"></path>
+                </svg>
+                <span class="contact-label">@IAMNOTBULAT</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact-vk" class="footer-contact-link" data-contact-key="vk">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.78 17.5c-5.47 0-8.59-3.75-8.72-10h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.5h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.02h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.31z"></path>
+                </svg>
+                <span class="contact-label">@BULA4</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact-other" class="footer-contact-link" data-contact-key="other">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 3C7.03 3 3 6.86 3 11.62c0 2.74 1.34 5.18 3.43 6.76-.12.97-.55 2.02-1.15 2.62 1.48-.12 2.9-.59 3.96-1.26.86.26 1.79.4 2.76.4 4.97 0 9-3.86 9-8.52S16.97 3 12 3zm0 11.9c-1.88 0-3.4-1.47-3.4-3.28S10.12 8.34 12 8.34s3.4 1.47 3.4 3.28-1.52 3.28-3.4 3.28z"></path>
+                </svg>
+                <span class="contact-label">@BULA4</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 </html>
