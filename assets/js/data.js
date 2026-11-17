@@ -79,6 +79,87 @@ window.SITE_CONFIG = {
  */
 window.PROJECTS = [
   {
+    id: 'cats-abstraction',
+    title: 'Слова в форме',
+    subtitle: 'Абстракционизм · Тольяттинская Академия Управления',
+    badge: 'SKETCH',
+    tools: 'Illustrator, Графика',
+    categories: ['sketch'],
+    client: 'Тольяттинская Академия Управления',
+    type: 'Абстрактная иллюстрация',
+    year: '2025',
+    linkUrl: '',
+    linkLabel: '10 работ',
+    coverImage: 'assets/images/cats-abstraction/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Слова в форме»',
+    bannerImage: 'assets/images/cats-abstraction/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка серии «Слова в форме»',
+    slides: [
+      {
+        image: 'assets/images/cats-abstraction/cover-card.jpg',
+        heroImage: 'assets/images/cats-abstraction/cover-banner.jpg',
+        label: 'Обложка серии',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-01-grust.jpg',
+        label: 'Грусть',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-02-dinamika.jpg',
+        label: 'Динамика',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-07-tyazhest.jpg',
+        label: 'Тяжесть',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-06-labirint.jpg',
+        label: 'Лабиринт / Скрытность',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-10-igra.jpg',
+        label: 'Игра и радость',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-04-legkost.jpg',
+        label: 'Лёгкость / Воздух',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-05-kontrast.jpg',
+        label: 'Контраст',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-03-statika.jpg',
+        label: 'Статика и равновесие',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-08-teplo.jpg',
+        label: 'Тепло и спокойствие',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/cats-abstraction/cat-09-udivlenie.jpg',
+        label: 'Удивление / Напряжение',
+        fit: 'contain'
+      }
+    ],
+    context:
+      'Учебный проект 2025 года в Тольяттинской Академии Управления. Основная суть — изобразить абстрактные слова, эмоции и физические состояния через образы кошек в стилистике геометрического абстракционизма.',
+    problem:
+      'Передать отвлечённые понятия («грусть», «динамика», «тяжесть», «лёгкость», «контраст» и др.) без единого слова текста и буквального реализма так, чтобы смысл считывался мгновенно, а вся серия из 10 работ оставалась цельной.',
+    solution:
+      'Построена выразительная визуальная система на базе простых геометрических форм, пластики силуэта и цветовых акцентов. Острые диагонали передают динамику, массивный тёмный купол — тяжесть, а работа с негативным пространством и контрастом раскрывает характер каждого образа.'
+  },
+  {
     id: '1',
     title: 'Пластилин',
     subtitle: 'Студия современной хореографии',
@@ -158,33 +239,6 @@ window.PROJECTS = [
       'Шахматные события часто воспринимаются как сугубо консервативные и закрытые, поэтому организаторам было сложно привлечь новую городскую аудиторию.',
     solution:
       'Объединили минималистичную геометрию доски с живой современной графикой и контрастными акцентами. Афиши и посты в соцсетях обеспечили полный солд-аут регистрации.'
-  },
-  {
-    id: '4',
-    title: 'Nordic Roast',
-    subtitle: 'Интернет-магазин спешелти-кофе',
-    badge: 'WEB',
-    tools: 'Figma, Webflow',
-    categories: ['web', 'ui-ux'],
-    client: '«Nordic Roast»',
-    type: 'Дизайн сайта',
-    year: '2026',
-    linkUrl: '',
-    linkLabel: 'LINK VIEW',
-    coverPlaceholder: 'Место для фото проекта 4',
-    bannerImage: '',
-    bannerPlaceholder: 'Место для фото проекта 4 (главный баннер)',
-    slides: [
-      { image: '', label: 'Место для фото проекта 4' },
-      { image: '', label: 'Место для фото проекта 4 — кадр 2' },
-      { image: '', label: 'Место для фото проекта 4 — кадр 3' }
-    ],
-    context:
-      'Полный редизайн интернет-магазина обжарщиков кофе с акцентом на подписку на свежие зёрна и удобный подбор вкусового профиля.',
-    problem:
-      'Покупателям было тяжело выбирать среди десятков сортов, а оформление подписки требовало слишком много шагов и вызывало отказы в корзине.',
-    solution:
-      'Внедрили визуальную шкалу вкусов, лаконичные карточки товаров и упрощённый чекаут. Средний чек и доля регулярных подписок заметно выросли уже в первый месяц.'
   }
 ];
 
