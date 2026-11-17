@@ -557,7 +557,8 @@
     if (projectsGrid && Array.isArray(window.PROJECTS)) {
       projectsGrid.innerHTML = window.PROJECTS.slice(0, 4)
         .map((project, idx) => {
-          const coverImg = (project.slides && project.slides[0] && project.slides[0].image) || '';
+          const coverImg =
+            project.coverImage || (project.slides && project.slides[0] && project.slides[0].image) || '';
           const placeholder = project.coverPlaceholder || `Место для фото проекта ${idx + 1}`;
           return `
             <a href="project.html?id=${encodeURIComponent(project.id)}" class="home-project-card" aria-label="Открыть проект ${escapeHtml(project.title)}">
@@ -737,14 +738,17 @@
               : [{ image: '', label: `Место для фото проекта ${idx + 1}` }];
 
           const slidesHtml = slides
-            .map(
-              (slide, sIdx) => `
-                <div class="portfolio-slide ${sIdx === 0 ? 'is-active' : ''}" data-slide-index="${sIdx}">
-                  ${renderPhotoSlot(slide.image, slide.label)}
+            .map((slide, sIdx) => {
+              const fitClass = slide.fit === 'contain' ? 'photo-slot--contain' : '';
+              return `
+                <div class="portfolio-slide ${sIdx === 0 ? 'is-active' : ''}" data-slide-index="${sIdx}" data-slide-label="${escapeHtml(slide.label || '')}" data-has-image="${slide.image ? '1' : '0'}">
+                  ${renderPhotoSlot(slide.image, slide.label, fitClass)}
                 </div>
-              `
-            )
+              `;
+            })
             .join('');
+
+          const firstLabel = slides[0] && slides[0].image && slides[0].label ? ` · ${slides[0].label}` : '';
 
           const dotsHtml = slides
             .map(
@@ -764,7 +768,7 @@
               <div class="portfolio-stage">
                 <div class="portfolio-slides-track">${slidesHtml}</div>
 
-                <span class="portfolio-slide-counter" data-slide-counter>1 / ${slides.length}</span>
+                <span class="portfolio-slide-counter" data-slide-counter>1 / ${slides.length}${escapeHtml(firstLabel)}</span>
 
                 <button type="button" class="portfolio-arrow portfolio-arrow--prev" data-slide-dir="-1" aria-label="Предыдущее фото">
                   ${CHEVRON_LEFT_SVG}
@@ -817,7 +821,12 @@
           slideIdx = (nextIdx + slides.length) % slides.length;
           slides.forEach((s, i) => s.classList.toggle('is-active', i === slideIdx));
           dots.forEach((d, i) => d.classList.toggle('is-active', i === slideIdx));
-          if (counter) counter.textContent = `${slideIdx + 1} / ${slides.length}`;
+          if (counter) {
+            const activeSlide = slides[slideIdx];
+            const hasImg = activeSlide && activeSlide.dataset.hasImage === '1';
+            const lbl = hasImg && activeSlide.dataset.slideLabel ? ` · ${activeSlide.dataset.slideLabel}` : '';
+            counter.textContent = `${slideIdx + 1} / ${slides.length}${lbl}`;
+          }
         };
 
         card.querySelectorAll('[data-slide-dir]').forEach((btn) => {
@@ -894,8 +903,10 @@
     if (!root || !Array.isArray(window.PROJECTS)) return;
 
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id') || '1';
-    const project = window.PROJECTS.find((p) => String(p.id) === String(id)) || window.PROJECTS[0];
+    const id = params.get('id');
+    const project =
+      (id ? window.PROJECTS.find((p) => String(p.id) === String(id)) : window.PROJECTS[0]) ||
+      window.PROJECTS[0];
     if (!project) return;
 
     document.title = `${project.title} — Портфолио`;
@@ -929,7 +940,11 @@
         linkEl.setAttribute('href', '#project-link');
         linkEl.addEventListener('click', (e) => {
           e.preventDefault();
-          showToast('Место для внешней ссылки на проект — добавьте linkUrl в assets/js/data.js');
+          if (project.linkLabel && project.linkLabel !== 'LINK VIEW') {
+            if (galleryEl) galleryEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            showToast('Место для внешней ссылки на проект — добавьте linkUrl в assets/js/data.js');
+          }
         });
       }
     }
@@ -939,14 +954,44 @@
         ? project.slides
         : [{ image: project.bannerImage || '', label: project.bannerPlaceholder || `Место для фото проекта ${project.id}` }];
 
+    let activeSlideIdx = 0;
+
     const renderHeroMedia = (slideIdx) => {
       if (!mediaEl) return;
-      if (slideIdx === 0 && project.bannerImage) {
-        mediaEl.innerHTML = renderPhotoSlot(project.bannerImage, project.bannerPlaceholder);
-      } else {
-        const s = slides[slideIdx] || slides[0];
-        const label = slideIdx === 0 ? project.bannerPlaceholder || s.label : s.label;
-        mediaEl.innerHTML = renderPhotoSlot(s.image, label);
+      activeSlideIdx = (slideIdx + slides.length) % slides.length;
+      const s = slides[activeSlideIdx] || slides[0];
+      const imgSrc =
+        s.heroImage || (activeSlideIdx === 0 && project.bannerImage ? project.bannerImage : s.image);
+      const label = activeSlideIdx === 0 && !s.label ? project.bannerPlaceholder : s.label;
+      const fitClass = s.fit === 'contain' && !s.heroImage ? 'photo-slot--contain' : '';
+
+      const navButtons =
+        slides.length > 1
+          ? `
+            <button type="button" class="project-hero-nav project-hero-nav--prev" id="project-hero-prev" aria-label="Предыдущая работа">
+              ${CHEVRON_LEFT_SVG}
+            </button>
+            <button type="button" class="project-hero-nav project-hero-nav--next" id="project-hero-next" aria-label="Следующая работа">
+              ${CHEVRON_RIGHT_SVG}
+            </button>
+            <div class="project-hero-caption">${activeSlideIdx + 1} / ${slides.length} · ${escapeHtml(label || project.title)}</div>
+          `
+          : '';
+
+      mediaEl.innerHTML = `${renderPhotoSlot(imgSrc, label || project.title, fitClass)}${navButtons}`;
+
+      const prevBtn = document.getElementById('project-hero-prev');
+      const nextBtn = document.getElementById('project-hero-next');
+      if (prevBtn) prevBtn.addEventListener('click', () => selectSlide(activeSlideIdx - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => selectSlide(activeSlideIdx + 1));
+    };
+
+    const selectSlide = (idx) => {
+      renderHeroMedia(idx);
+      if (galleryEl) {
+        galleryEl.querySelectorAll('.project-gallery-thumb').forEach((t, i) => {
+          t.classList.toggle('is-active', i === activeSlideIdx);
+        });
       }
     };
 
@@ -954,25 +999,38 @@
 
     if (galleryEl && slides.length > 1) {
       galleryEl.innerHTML = slides
-        .map(
-          (slide, idx) => `
+        .map((slide, idx) => {
+          const fitClass = slide.fit === 'contain' ? 'photo-slot--contain' : '';
+          return `
             <button type="button" class="project-gallery-thumb ${idx === 0 ? 'is-active' : ''}" data-thumb-idx="${idx}" aria-label="${escapeHtml(slide.label)}">
-              ${renderPhotoSlot(slide.image, slide.label)}
+              <div class="project-thumb-visual">
+                ${renderPhotoSlot(slide.image, slide.label, fitClass)}
+              </div>
+              <div class="project-thumb-label">${idx + 1}. ${escapeHtml(slide.label)}</div>
             </button>
-          `
-        )
+          `;
+        })
         .join('');
 
       galleryEl.querySelectorAll('.project-gallery-thumb').forEach((thumb) => {
         thumb.addEventListener('click', () => {
-          const idx = Number(thumb.dataset.thumbIdx);
-          galleryEl.querySelectorAll('.project-gallery-thumb').forEach((t, i) => {
-            t.classList.toggle('is-active', i === idx);
-          });
-          renderHeroMedia(idx);
+          selectSlide(Number(thumb.dataset.thumbIdx));
         });
       });
+    } else if (galleryEl) {
+      galleryEl.innerHTML = '';
     }
+
+    // Клавиатурное переключение слайдов (стрелки влево/вправо)
+    const keyHandler = (e) => {
+      if (!document.body.contains(root) || document.body.dataset.page !== 'project') {
+        document.removeEventListener('keydown', keyHandler);
+        return;
+      }
+      if (e.key === 'ArrowLeft') selectSlide(activeSlideIdx - 1);
+      else if (e.key === 'ArrowRight') selectSlide(activeSlideIdx + 1);
+    };
+    document.addEventListener('keydown', keyHandler);
   }
 
   /* -------------------------------------------------------------------------
