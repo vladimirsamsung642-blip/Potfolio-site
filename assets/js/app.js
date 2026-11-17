@@ -580,6 +580,21 @@
           `;
         })
         .join('');
+
+      // Если проектов больше 4 — показываем кнопку перехода ко всем работам
+      const existingMore = projectsGrid.parentElement && projectsGrid.parentElement.querySelector('.home-projects-more');
+      if (existingMore) existingMore.remove();
+      if (window.PROJECTS.length > 4 && projectsGrid.parentElement) {
+        const moreWrap = document.createElement('div');
+        moreWrap.className = 'home-projects-more';
+        moreWrap.innerHTML = `
+          <a href="portfolio.html" class="home-more-btn">
+            <span>Смотреть все проекты (${window.PROJECTS.length})</span>
+            <span class="home-more-icon" aria-hidden="true">${ARROW_UP_RIGHT_SVG}</span>
+          </a>
+        `;
+        projectsGrid.insertAdjacentElement('afterend', moreWrap);
+      }
     }
 
     // Слайдер отзывов

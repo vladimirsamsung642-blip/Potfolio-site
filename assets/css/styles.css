@@ -510,6 +510,49 @@ body[data-page="about"] .site-header {
   gap: 24px;
 }
 
+.home-projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.home-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px 11px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--mint-pale);
+  border: 1.5px solid rgba(15, 102, 101, 0.14);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: background 0.25s ease, transform 0.25s var(--ease-out-expo), box-shadow 0.25s ease;
+}
+
+.home-more-btn:hover {
+  background: #DDF6F6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -14px rgba(15, 102, 101, 0.35);
+}
+
+.home-more-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.home-more-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
 .home-project-card {
   position: relative;
   display: flex;
