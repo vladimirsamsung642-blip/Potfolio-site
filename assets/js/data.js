@@ -221,31 +221,100 @@ window.PROJECTS = [
       'Для каждого концепта подобрана своя пластика формы, шрифтовая пара и цветовая доминанта: динамичная диагональ и орбитальный знак для Astrum Labs, контрастная антиква и фирменный паттерн для VigilCore, глубокий изумрудный тон и чистая геометрия знака для Nimbus Studio.'
   },
   {
-    id: '1',
-    title: 'Пластилин',
-    subtitle: 'Студия современной хореографии',
-    badge: 'WEB',
-    tools: 'Illustrator, Photoshop',
-    categories: ['sketch', 'web'],
-    client: '«Пластилин»',
-    type: 'Брендинг',
+    id: 'calendar-2026',
+    title: 'Календарь 2026',
+    subtitle: 'Год Лошади · Тольяттинская Академия Управления',
+    badge: 'PRINT',
+    tools: 'Illustrator, Полиграфия',
+    categories: ['sketch'],
+    client: 'Тольяттинская Академия Управления',
+    type: 'Полиграфия и иллюстрация',
     year: '2025',
-    linkUrl: '', // ← Вставьте внешнюю ссылку на проект (Behance / сайт)
-    linkLabel: 'LINK VIEW',
-    coverPlaceholder: 'Место для фото проекта 1',
-    bannerImage: '', // ← Вставьте путь к главному баннеру проекта 1
-    bannerPlaceholder: 'Место для фото проекта 1 (главный баннер)',
+    linkUrl: '',
+    linkLabel: '13 листов',
+    coverImage: 'assets/images/calendar-2026/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Календарь 2026»',
+    bannerImage: 'assets/images/calendar-2026/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка серии «Календарь 2026»',
     slides: [
-      { image: '', label: 'Место для фото проекта 1' },
-      { image: '', label: 'Место для фото проекта 1 — кадр 2' },
-      { image: '', label: 'Место для фото проекта 1 — кадр 3' }
+      {
+        image: 'assets/images/calendar-2026/cover-card.jpg',
+        heroImage: 'assets/images/calendar-2026/cover-banner.jpg',
+        label: 'Обложка серии',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-00-title.jpg',
+        label: 'Титульный лист · 2026',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-01-january.jpg',
+        label: 'Январь · Ледяной конь',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-02-february.jpg',
+        label: 'Февраль',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-03-march.jpg',
+        label: 'Март',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-04-april.jpg',
+        label: 'Апрель · Пегас',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-05-may.jpg',
+        label: 'Май · Цветочная роспись',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-06-june.jpg',
+        label: 'Июнь · Солнечный конь',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-07-july.jpg',
+        label: 'Июль · Морской конёк',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-08-august.jpg',
+        label: 'Август · Огненная лошадь',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-09-september.jpg',
+        label: 'Сентябрь · Деловой стиль',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-10-october.jpg',
+        label: 'Октябрь · Хэллоуин',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-11-november.jpg',
+        label: 'Ноябрь · Ночной Пегас',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/calendar-2026/cal-12-december.jpg',
+        label: 'Декабрь · Новогодний авангард',
+        fit: 'contain'
+      }
     ],
     context:
-      'Основной задачей было создание динамичной и дерзкой айдентики, которая передаёт драйв современных танцев, помогает студии выделиться среди конкурентов и привлекает молодёжную аудиторию.',
+      'Академический проект 2025 года в Тольяттинской Академии Управления (2 курс, кафедра прикладной информатики). Разработка авторского перекидного календаря на 2026 год — Год Лошади — в формате горизонтальных листов A4.',
     problem:
-      'Отсутствие узнаваемого характера. Текущий образ студии был слишком «правильным» и скучным, из-за чего бренд не привлекал молодёжь и сливался с классическими танцевальными школами.',
+      'Сделать 12 календарных страниц и титульный лист визуально непохожими друг на друга, сохранив при этом единый геометрический язык, чёткую читаемость календарной сетки и узнаваемый образ символа года в каждом месяце.',
     solution:
-      'Создан смелый визуальный язык на основе графики-стикеров. Яркий леттеринг, контрастные цвета и динамичные паттерны движения помогли бренду заявить о себе и передать живую энергию танца.'
+      'Создана модульная серия из 13 иллюстраций, где каждый месяц раскрывает образ лошади через сезонную метафору и собственный цветовой акцент: от ледяного кристалла в январе, цветочной росписи в мае и морского конька в июле до огненной лошади в августе, делового костюма в сентябре и авангардной гирлянды в декабре.'
   },
   {
     id: '2',
