@@ -160,6 +160,67 @@ window.PROJECTS = [
       'Построена выразительная визуальная система на базе простых геометрических форм, пластики силуэта и цветовых акцентов. Острые диагонали передают динамику, массивный тёмный купол — тяжесть, а работа с негативным пространством и контрастом раскрывает характер каждого образа.'
   },
   {
+    id: 'kwork-cards',
+    title: 'Дизайн визиток',
+    subtitle: 'Серия двусторонних концептов для Kwork',
+    badge: 'BRAND',
+    tools: 'Illustrator, Полиграфия',
+    categories: ['sketch'],
+    client: 'Портфолио Kwork',
+    type: 'Полиграфия и брендинг',
+    year: '2026',
+    linkUrl: '',
+    linkLabel: '6 макетов',
+    coverImage: 'assets/images/kwork-cards/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Дизайн визиток»',
+    bannerImage: 'assets/images/kwork-cards/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка серии «Дизайн визиток»',
+    slides: [
+      {
+        image: 'assets/images/kwork-cards/cover-card.jpg',
+        heroImage: 'assets/images/kwork-cards/cover-banner.jpg',
+        label: 'Обложка серии',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-01-astrum-front.jpg',
+        label: 'Astrum Labs — лицевая',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-02-astrum-back.jpg',
+        label: 'Astrum Labs — оборот',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-04-vigilcore-logo.jpg',
+        label: 'VigilCore — лицевая',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-03-vigilcore-pattern.jpg',
+        label: 'VigilCore — паттерн',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-05-nimbus-front.jpg',
+        label: 'Nimbus Studio — лицевая',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/kwork-cards/card-06-nimbus-back.jpg',
+        label: 'Nimbus Studio — оборот',
+        fit: 'contain'
+      }
+    ],
+    context:
+      'Коллекция из трёх разноплановых двусторонних визиток, разработанная для витрины услуг на Kwork. Задача — показать гибкость в работе с разными нишами: от технологичного бренда Astrum Labs до премиальной типографики VigilCore и лаконичной дизайн-студии Nimbus Studio.',
+    problem:
+      'Визитки часто выглядят шаблонно и теряются среди десятков одинаковых карточек. Нужно было создать запоминающиеся макеты в едином высоком качестве печати (CMYK), но с принципиально разным визуальным характером для каждого вымышленного бренда.',
+    solution:
+      'Для каждого концепта подобрана своя пластика формы, шрифтовая пара и цветовая доминанта: динамичная диагональ и орбитальный знак для Astrum Labs, контрастная антиква и фирменный паттерн для VigilCore, глубокий изумрудный тон и чистая геометрия знака для Nimbus Studio.'
+  },
+  {
     id: '1',
     title: 'Пластилин',
     subtitle: 'Студия современной хореографии',
@@ -212,33 +273,6 @@ window.PROJECTS = [
       'Посетители путались в расписании мероприятий, а старый сайт плохо работал на смартфонах, из-за чего падала конверсия в покупку билетов.',
     solution:
       'Спроектирована чистая модульная сетка с выразительной типографикой и быстрым сценарием бронирования за 3 клика. Мобильная конверсия выросла на 38%.'
-  },
-  {
-    id: '3',
-    title: 'Шах и Мат',
-    subtitle: 'Фирменный стиль городского фестиваля',
-    badge: 'BRAND',
-    tools: 'Illustrator, Photoshop',
-    categories: ['sketch', 'ui-ux'],
-    client: 'Фестиваль «Шах и Мат»',
-    type: 'Графика и брендинг',
-    year: '2025',
-    linkUrl: '',
-    linkLabel: 'LINK VIEW',
-    coverPlaceholder: 'Место для фото проекта 3',
-    bannerImage: '',
-    bannerPlaceholder: 'Место для фото проекта 3 (главный баннер)',
-    slides: [
-      { image: '', label: 'Место для фото проекта 3' },
-      { image: '', label: 'Место для фото проекта 3 — кадр 2' },
-      { image: '', label: 'Место для фото проекта 3 — кадр 3' }
-    ],
-    context:
-      'Создание целостного визуального образа для интеллектуального фестиваля: афиши, мерч, оформление соцсетей и навигация на площадке.',
-    problem:
-      'Шахматные события часто воспринимаются как сугубо консервативные и закрытые, поэтому организаторам было сложно привлечь новую городскую аудиторию.',
-    solution:
-      'Объединили минималистичную геометрию доски с живой современной графикой и контрастными акцентами. Афиши и посты в соцсетях обеспечили полный солд-аут регистрации.'
   }
 ];
 
