@@ -165,7 +165,7 @@ window.PROJECTS = [
     subtitle: 'Серия двусторонних концептов для Kwork',
     badge: 'BRAND',
     tools: 'Illustrator, Полиграфия',
-    categories: ['sketch'],
+    categories: ['brand', 'print'],
     client: 'Портфолио Kwork',
     type: 'Полиграфия и брендинг',
     year: '2026',
@@ -226,7 +226,7 @@ window.PROJECTS = [
     subtitle: 'Год Лошади · Тольяттинская Академия Управления',
     badge: 'PRINT',
     tools: 'Illustrator, Полиграфия',
-    categories: ['sketch'],
+    categories: ['sketch', 'print'],
     client: 'Тольяттинская Академия Управления',
     type: 'Полиграфия и иллюстрация',
     year: '2025',
@@ -317,31 +317,80 @@ window.PROJECTS = [
       'Создана модульная серия из 13 иллюстраций, где каждый месяц раскрывает образ лошади через сезонную метафору и собственный цветовой акцент: от ледяного кристалла в январе, цветочной росписи в мае и морского конька в июле до огненной лошади в августе, делового костюма в сентябре и авангардной гирлянды в декабре.'
   },
   {
-    id: '2',
-    title: 'Geometry of Presence',
-    subtitle: 'Веб-платформа и серия плакатов',
-    badge: 'UI/UX',
-    tools: 'Figma, Illustrator',
-    categories: ['ui-ux', 'web'],
-    client: '«Арт-Пространство»',
-    type: 'UI/UX Дизайн',
+    id: 'ya-nastavnik',
+    title: '«Я — наставник»',
+    subtitle: 'Тетрадь и игровые карточки · Центр «Галактика»',
+    badge: 'EDTECH',
+    tools: 'Illustrator, Вёрстка',
+    categories: ['brand', 'print'],
+    client: 'Интенсив «Я — наставник» (Галактика)',
+    type: 'Образовательный комплект',
     year: '2025',
     linkUrl: '',
-    linkLabel: 'LINK VIEW',
-    coverPlaceholder: 'Место для фото проекта 2',
-    bannerImage: '',
-    bannerPlaceholder: 'Место для фото проекта 2 (главный баннер)',
+    linkLabel: '9 макетов',
+    coverImage: 'assets/images/ya-nastavnik/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Я — наставник»',
+    bannerImage: 'assets/images/ya-nastavnik/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка проекта «Я — наставник»',
     slides: [
-      { image: '', label: 'Место для фото проекта 2' },
-      { image: '', label: 'Место для фото проекта 2 — кадр 2' },
-      { image: '', label: 'Место для фото проекта 2 — кадр 3' }
+      {
+        image: 'assets/images/ya-nastavnik/cover-card.jpg',
+        heroImage: 'assets/images/ya-nastavnik/cover-banner.jpg',
+        label: 'Обложка проекта',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/workbook-01-pains.jpg',
+        label: 'Тетрадь · Боли и ЦА',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/workbook-02-solution.jpg',
+        label: 'Тетрадь · Решение и цепочка',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/workbook-03-leancanvas.jpg',
+        label: 'Тетрадь · Lean Canvas',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/niche-01-eco.jpg',
+        label: 'Карточка ниши · Эко-косметика',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/niche-02-winter.jpg',
+        label: 'Карточка ниши · Зимний спорт',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/niche-03-gaming.jpg',
+        label: 'Карточка ниши · Игры',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/persona-01-maria.jpg',
+        label: 'Карточка ЦА · Мария, 32 года',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/persona-02-ilya.jpg',
+        label: 'Карточка ЦА · Илья, 20 лет',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/ya-nastavnik/persona-03-alina.jpg',
+        label: 'Карточка ЦА · Алина, 27 лет',
+        fit: 'contain'
+      }
     ],
     context:
-      'Разработка интерактивного сайта-афиши и визуальной системы для выставки современного дизайна с удобной навигацией по залам и онлайн-покупкой билетов.',
+      'Дизайн образовательного печатного комплекта для молодёжного интенсива «Я — наставник» на базе центра «Галактика». Наша команда знакомила десятиклассников с основами предпринимательства, и для ежедневного закрепления лекций и деловых игр понадобились рабочая тетрадь и набор игровых карточек.',
     problem:
-      'Посетители путались в расписании мероприятий, а старый сайт плохо работал на смартфонах, из-за чего падала конверсия в покупку билетов.',
+      'Сложные бизнес-термины (целевая аудитория, боли клиента, сезонность спроса, Lean Canvas) трудно воспринимаются школьниками на слух. Материалы должны были вовлекать в живую игру, помогать фиксировать инсайты каждый день и оставаться визуально дружелюбными.',
     solution:
-      'Спроектирована чистая модульная сетка с выразительной типографикой и быстрым сценарием бронирования за 3 клика. Мобильная конверсия выросла на 38%.'
+      'Разработана единая модульная система из трёх частей: рабочая тетрадь с блоками для записей, подсказками и шаблоном Lean Canvas; иллюстрированные карточки бизнес-ниш с наглядной инфографикой спроса, конкуренции и сезонности; карточки-персоны целевой аудитории для отработки реальных кейсов.'
   }
 ];
 
