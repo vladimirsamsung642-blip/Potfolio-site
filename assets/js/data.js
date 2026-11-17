@@ -437,6 +437,92 @@ window.PROJECTS = [
       'Конкурсный плакат должен мгновенно считываться с первого взгляда, выделяться среди десятков работ жюри и передавать идею темы через чистый силуэт, контрастный цвет и выразительную композицию без лишней перегруженности.',
     solution:
       'Для каждого конкурса найден свой графический ключ: в «Дне энергетика» — геометрия опор ЛЭП на фоне золотого светила и плотная акцидентная типографика; в «Зиме в Москве» и «Кибер-страже» — замкнутая сферическая композиция с контрастной палитрой и ритмом орбитальных деталей.'
+  },
+  {
+    id: 'hodi-brodi',
+    title: 'Маскоты «Ходи Броди»',
+    subtitle: 'Два концепта бренд-персонажей · Олень и квартет',
+    badge: 'MASCOT',
+    tools: 'Illustrator, Персонажи',
+    categories: ['sketch', 'brand'],
+    client: 'Компания «Ходи Броди»',
+    type: 'Маскоты и персонажи',
+    year: '2026',
+    linkUrl: '',
+    linkLabel: '2 концепта',
+    coverImage: 'assets/images/hodi-brodi/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Маскоты Ходи Броди»',
+    bannerImage: 'assets/images/hodi-brodi/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка проекта «Маскоты Ходи Броди»',
+    slides: [
+      {
+        image: 'assets/images/hodi-brodi/cover-card.jpg',
+        heroImage: 'assets/images/hodi-brodi/cover-banner.jpg',
+        label: 'Обложка проекта',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-00-sheet.jpg',
+        label: 'Концепт 01 · Олень (линейка поз)',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/paper-00-quartet.jpg',
+        label: 'Концепт 02 · Квартет персонажей',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-01-walk-violet.jpg',
+        label: 'Олень · Прогулка (индиго)',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-02-walk-lime.jpg',
+        label: 'Олень · Прогулка (лайм)',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-03-idea.jpg',
+        label: 'Олень · Эврика и идея',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-04-joy.jpg',
+        label: 'Олень · Радость',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/deer-05-peace.jpg',
+        label: 'Олень · Приветствие',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/paper-01-green.jpg',
+        label: 'Квартет · Радость и энергия',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/paper-02-purple.jpg',
+        label: 'Квартет · Спокойствие',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/paper-03-blue.jpg',
+        label: 'Квартет · Нежность и забота',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/hodi-brodi/paper-04-yellow.jpg',
+        label: 'Квартет · Вдохновение',
+        fit: 'contain'
+      }
+    ],
+    context:
+      'Разработка фирменных маскотов для компании «Ходи Броди» (2026). В рамках поиска визуального голоса бренда были проработаны два контрастных направления: сольный харизматичный маскот-олень и объединённая команда из четырёх бумажных персонажей.',
+    problem:
+      'Создать живых, запоминающихся персонажей, которые органично живут в цифровых коммуникациях, стикерах, интерфейсах и мерче бренда, передавая эмоции и дружелюбный характер «Ходи Броди».',
+    solution:
+      'Первый концепт — современный олень в авиаторах, с неоновыми рожками и спортивной куртке (5 рабочих поз и две цветовые версии). Второй концепт — единый papercraft-квартет из четырёх цветных персонажей, каждый из которых отвечает за отдельное настроение и сценарий общения с аудиторией.'
   }
 ];
 
