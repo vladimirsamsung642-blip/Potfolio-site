@@ -524,6 +524,77 @@ window.PROJECTS = [
       'Создать живых, запоминающихся персонажей, которые органично живут в цифровых коммуникациях, стикерах, интерфейсах и мерче бренда, передавая эмоции и дружелюбный характер «Ходи Броди».',
     solution:
       'Первый концепт — современный олень в авиаторах, с неоновыми рожками и спортивной куртке (5 рабочих поз и две цветовые версии). Второй концепт — единый papercraft-квартет из четырёх цветных персонажей, каждый из которых отвечает за отдельное настроение и сценарий общения с аудиторией.'
+  },
+  {
+    id: 'viper-energy',
+    title: 'Энергетик «Viper Energy»',
+    subtitle: 'Концепт упаковки и 3D-мокапы линейки из 4 вкусов',
+    badge: 'PACKAGING',
+    tools: 'Illustrator, Упаковка, 3D-мокапы',
+    categories: ['brand', 'print', 'sketch'],
+    client: 'Авторский концепт',
+    type: 'Дизайн упаковки и мокапы',
+    year: '2026',
+    linkUrl: '',
+    linkLabel: '4 мокапа + 4 развёртки',
+    coverImage: 'assets/images/viper-energy/cover-card.jpg',
+    coverPlaceholder: 'Обложка проекта «Viper Energy»',
+    bannerImage: 'assets/images/viper-energy/cover-banner.jpg',
+    bannerPlaceholder: 'Обложка проекта «Viper Energy»',
+    slides: [
+      {
+        image: 'assets/images/viper-energy/cover-card.jpg',
+        heroImage: 'assets/images/viper-energy/cover-banner.jpg',
+        label: 'Обложка проекта',
+        fit: 'cover'
+      },
+      {
+        image: 'assets/images/viper-energy/mockup-01-lineup.jpg',
+        label: 'Мокап 01 · Линейка 4 вкусов',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/mockup-02-orange-360.jpg',
+        label: 'Мокап 02 · Обзор банки 360°',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/mockup-03-floating-action.jpg',
+        label: 'Мокап 03 · Динамичная левитация',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/mockup-04-grid-showcase.jpg',
+        label: 'Мокап 04 · 4 вкуса: мокап + развёртка',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/label-01-orange.jpg',
+        label: 'Развёртка · Апельсин · Маракуйя',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/label-02-red.jpg',
+        label: 'Развёртка · Малина · Клубника',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/label-03-yellow.jpg',
+        label: 'Развёртка · Лимон · Ананас',
+        fit: 'contain'
+      },
+      {
+        image: 'assets/images/viper-energy/label-04-purple.jpg',
+        label: 'Развёртка · Черника · Ежевика',
+        fit: 'contain'
+      }
+    ],
+    context:
+      'Авторский концепт дизайна линейки энергетических напитков «Viper Energy» (банка 500 мл). Проект включает разработку логотипа с характерным «змеиным» росчерком, полигональной иллюстрации гадюки, полных круговых развёрток этикеток и 4 вариантов студийных 3D-мокапов.',
+    problem:
+      'Спроектировать хищный, контрастный и мгновенно узнаваемый на полке визуальный образ энергетика, в котором каждый вкус легко считывается за счёт цветовой кодировки верхнего кольца и центральной иллюстрации на матовом чёрном алюминии.',
+    solution:
+      'Единая модульная сетка круговой этикетки объединяет центральную полигональную иллюстрацию змеи, акцидентный логотип VIPER ENERGY, блок легенды бренда и таблицу пищевой ценности. Для презентации проекта подготовлены 4 варианта реалистичных 3D-мокапов алюминиевых банок: студийная линейка 4 вкусов, обзор 360°, динамичная левитация и парная витрина «мокап + печатная развёртка».'
   }
 ];
 
