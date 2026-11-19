@@ -686,12 +686,32 @@
 
     const resumeBtn = document.getElementById('download-resume-btn');
     if (resumeBtn) {
-      resumeBtn.addEventListener('click', () => {
+      const cfgResumeUrl = window.SITE_CONFIG && window.SITE_CONFIG.resumeUrl;
+      const cfgResumeName =
+        (window.SITE_CONFIG && window.SITE_CONFIG.resumeDownloadName) ||
+        'Хайретдинов_Резюме_3Курс.pdf';
+
+      if (resumeBtn.tagName === 'A' && cfgResumeUrl) {
+        resumeBtn.setAttribute('href', cfgResumeUrl);
+        resumeBtn.setAttribute('download', cfgResumeName);
+      }
+
+      resumeBtn.addEventListener('click', (e) => {
         const resumeUrl = window.SITE_CONFIG && window.SITE_CONFIG.resumeUrl;
         if (resumeUrl) {
-          window.open(resumeUrl, '_blank', 'noopener');
+          if (resumeBtn.tagName === 'A') {
+            return;
+          }
+          e.preventDefault();
+          const tmpLink = document.createElement('a');
+          tmpLink.href = resumeUrl;
+          tmpLink.setAttribute('download', cfgResumeName);
+          document.body.appendChild(tmpLink);
+          tmpLink.click();
+          tmpLink.remove();
           return;
         }
+        e.preventDefault();
         openModal(
           'Резюме — Булат',
           `

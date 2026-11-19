@@ -886,6 +886,16 @@ body[data-page="about"] .site-header {
   margin-bottom: 14px;
 }
 
+.about-portrait-frame .photo-slot--dark {
+  background: #298B8A;
+}
+
+.about-portrait-frame .photo-slot img {
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 10px 8px 0;
+}
+
 .about-portrait-caption {
   margin: 0 0 24px;
   font-family: var(--font-sans);
